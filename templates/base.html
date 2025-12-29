@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A simple, fast, and straightforward blog.">
+    <meta name="description" content="{% block description %}A simple, fast, and straightforward blog.{% endblock %}">
     <title>{% block title %}My Website{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ url_for('feed') }}">
+    {% block extra_head %}{% endblock %}
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header>
-        <nav class="header-menu">
-            <a href="/" class="header-menu__item {% if current_path == '/' %}header-menu__item--active{% endif %}">Home</a>
-            <a href="/blog" class="header-menu__item {% if current_path == '/blog' %}header-menu__item--active{% endif %}">Blog</a>
-            <a href="/now" class="header-menu__item {% if current_path == '/now' %}header-menu__item--active{% endif %}">Now</a>
+        <nav class="header-menu" aria-label="Main navigation">
+            <a href="{{ url_for('index') }}" class="header-menu__item {% if current_path == '/' %}header-menu__item--active{% endif %}" aria-current="{% if current_path == '/' %}page{% else %}false{% endif %}">Home</a>
+            <a href="{{ url_for('blog') }}" class="header-menu__item {% if current_path == '/blog' %}header-menu__item--active{% endif %}" aria-current="{% if current_path == '/blog' %}page{% else %}false{% endif %}">Blog</a>
+            <a href="{{ url_for('now') }}" class="header-menu__item {% if current_path == '/now' %}header-menu__item--active{% endif %}" aria-current="{% if current_path == '/now' %}page{% else %}false{% endif %}">Now</a>
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         {% block content %}{% endblock %}
     </main>
 

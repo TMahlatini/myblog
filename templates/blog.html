@@ -2,21 +2,25 @@
 
 {% block title %}Blog{% endblock %}
 
-{% block content %}
-<p>This is a space for me to reflect on the big and small ideas that cross my mind.
-</p>
+{% block description %}Blog posts by Terence Mahlatini{% endblock %}
 
-{% if posts %}
-<ul class="posts">
-    {% for post in posts %}
-    <li>
-        <a href="/{{ post.slug }}">{{ post.title }}</a>
-        {% if post.date %}
-        <span class="date"> — {{ post.date.strftime('%B %d, %Y') }}</span>
-        {% endif %}
-    </li>
-    {% endfor %}
-</ul>
+{% block content %}
+{% if posts_by_year %}
+{% for year in sorted_years %}
+<section>
+    <h2>{{ year }}</h2>
+    <ul class="posts posts-by-year">
+        {% for post in posts_by_year[year] %}
+        <li class="{% if not loop.last %}post-item{% else %}post-item post-item-last-in-year{% endif %}">
+            {% if post.date %}
+            <time class="date" datetime="{{ post.date.strftime('%Y-%m-%d') }}">{{ post.date.strftime('%m/%d') }}</time>
+            {% endif %}
+            <a href="{{ url_for('post', slug=post.slug) }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endfor %}
 {% else %}
 <p>No posts yet. Check back soon!</p>
 {% endif %}

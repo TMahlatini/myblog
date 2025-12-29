@@ -2,19 +2,20 @@
 
 {% block title %}Now{% endblock %}
 
+{% block description %}What Terence Mahlatini is currently focused on.{% endblock %}
+
 {% block content %}
 <article>
     <div class="content">
-        <p>This is a <a href="https://nownownow.com/about">now page</a>. It tells you what I'm focused on right now.</p>
-        
-        <h3>Currently</h3>
+        <p>This is a <a href="https://nownownow.com/about" rel="noopener noreferrer">now page</a>. It tells you what I'm focused on right now.</p>
+
+        <h2>Currently</h2>
         <ul>
             <li>Preparing for the RHCE exam.</li>
-            <li>Reading "How linux works" </li>
+            <li>Reading "How linux works"</li>
         </ul>
-        
-        
-        <p><em>Last updated: {{ now.strftime('%B %d, %Y') }}</em></p>
+
+        <p><em>Last updated: <time datetime="{{ now.strftime('%Y-%m-%d') }}">{{ now.strftime('%B %d, %Y') }}</time></em></p>
     </div>
 </article>
 {% endblock %}

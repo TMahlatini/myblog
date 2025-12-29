@@ -2,12 +2,14 @@
 
 {% block title %}Home{% endblock %}
 
+{% block description %}Terence Mahlatini's personal website and blog.{% endblock %}
+
 {% block content %}
-<div class="home-intro">
-    <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Profile" class="profile-image">
+<section class="home-intro">
+    <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Terence Mahlatini" class="profile-image">
     <div class="intro-text">
         <p>Hello, my name is Terence Mahlatini. Welcome to my humble corner of the internet.</p>
     </div>
-</div>
+</section>
 {% endblock %}
 
