@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Now{% endblock %}
+
+{% block content %}
+<article>
+    <div class="content">
+        <p>This is a <a href="https://nownownow.com/about">now page</a>. It tells you what I'm focused on right now.</p>
+        
+        <h3>Currently</h3>
+        <ul>
+            <li>Preparing for the RHCE exam.</li>
+            <li>Reading "How linux works" </li>
+        </ul>
+        
+        
+        <p><em>Last updated: {{ now.strftime('%B %d, %Y') }}</em></p>
+    </div>
+</article>
+{% endblock %}
+

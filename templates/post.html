@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<article>
+    <h1>{{ post.title }}</h1>
+    {% if post.date %}
+    <div class="meta">
+        <span class="date">{{ post.date.strftime('%B %d, %Y') }}</span>
+    </div>
+    {% endif %}
+    <div class="content">
+        {{ post.content|safe }}
+    </div>
+    <p class="back-link"><a href="/blog">← All posts</a></p>
+</article>
+{% endblock %}
+

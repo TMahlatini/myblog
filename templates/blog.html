@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+<p>This is a space for me to reflect on the big and small ideas that cross my mind.
+</p>
+
+{% if posts %}
+<ul class="posts">
+    {% for post in posts %}
+    <li>
+        <a href="/{{ post.slug }}">{{ post.title }}</a>
+        {% if post.date %}
+        <span class="date"> — {{ post.date.strftime('%B %d, %Y') }}</span>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No posts yet. Check back soon!</p>
+{% endif %}
+{% endblock %}
+

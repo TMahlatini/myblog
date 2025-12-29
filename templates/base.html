@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple, fast, and straightforward blog.">
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ url_for('feed') }}">
+</head>
+<body>
+    <header>
+        <nav class="header-menu">
+            <a href="/" class="header-menu__item {% if current_path == '/' %}header-menu__item--active{% endif %}">Home</a>
+            <a href="/blog" class="header-menu__item {% if current_path == '/blog' %}header-menu__item--active{% endif %}">Blog</a>
+            <a href="/now" class="header-menu__item {% if current_path == '/now' %}header-menu__item--active{% endif %}">Now</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; {{ now.strftime('%Y') }} - Terence Mahlatini</p>
+    </footer>
+</body>
+</html>
+
