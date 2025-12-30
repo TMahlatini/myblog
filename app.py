@@ -16,7 +16,6 @@ def parse_frontmatter(content, slug):
     """Parse frontmatter from markdown content and return metadata and body."""
     title = slug.replace('-', ' ').title()
     date = None
-    tags = []
     body = content
     
     if content.startswith('---'):
@@ -35,14 +34,10 @@ def parse_frontmatter(content, slug):
                         date = datetime.strptime(date_str, '%Y-%m-%d')
                     except (ValueError, TypeError):
                         pass
-                elif line.startswith('tags:'):
-                    tags_str = line.split(':', 1)[1].strip()
-                    tags = [t.strip().strip('"\'[]') for t in tags_str.split(',') if t.strip()]
     
     return {
         'title': title,
         'date': date,
-        'tags': tags,
         'body': body
     }
 
@@ -70,7 +65,6 @@ def load_post_from_file(slug):
         'slug': slug,
         'title': metadata['title'],
         'date': metadata['date'],
-        'tags': metadata['tags'],
         'content': markdown.markdown(metadata['body']),
         'excerpt': (metadata['body'].split('\n')[0][:150] + '...' 
                    if len(metadata['body']) > 150 else metadata['body'])

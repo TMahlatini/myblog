@@ -1,7 +1,7 @@
 :root {
     /* Spacing */
     --spacing-xs: 0.25rem;
-    --spacing-sm: 0.5rem;
+    --spacing-sm: 0.1rem;
     --spacing-md: 1rem;
     --spacing-lg: 1.5rem;
     --spacing-xl: 2rem;
@@ -215,8 +215,8 @@ ul.posts a:hover {
 
 .profile-image {
     max-width: 100%;
-    width: 400px;
-    height: 175px;
+    width: 600px;
+    height: 250px;
     border-radius: 0;
     object-fit: cover;
     margin: 0 auto var(--spacing-lg);
@@ -235,25 +235,6 @@ ul.posts a:hover {
     margin-bottom: var(--spacing-lg);
     padding-bottom: var(--spacing-md);
     border-bottom: 1px solid var(--color-border-light);
-}
-
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-sm);
-    margin-top: var(--spacing-sm);
-}
-
-.tag {
-    background: var(--color-bg-tertiary);
-    padding: 0.2em 0.6em;
-    border-radius: var(--radius-small);
-    font-size: var(--font-size-small);
-    color: var(--color-text-secondary);
-}
-
-article header {
-    margin-bottom: var(--spacing-lg);
 }
 
 article {

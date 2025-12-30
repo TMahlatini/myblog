@@ -7,8 +7,9 @@
 {% block content %}
 {% if posts_by_year %}
 {% for year in sorted_years %}
+
 <section>
-    <h2>{{ year }}</h2>
+    <h3>{{ year }}</h3>
     <ul class="posts posts-by-year">
         {% for post in posts_by_year[year] %}
         <li class="{% if not loop.last %}post-item{% else %}post-item post-item-last-in-year{% endif %}">
