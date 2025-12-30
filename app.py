@@ -1,15 +1,13 @@
-from flask import Flask, render_template, make_response, request, url_for
+from flask import Flask, render_template, request
 import os
 import markdown
 from datetime import datetime
-from html import escape
 import re
 
 app = Flask(__name__)
 
 POSTS_DIR = 'posts'
 SITE_TITLE = "Terence Mahlatini"
-SITE_DESCRIPTION = ""
 
 
 def parse_frontmatter(content, slug):
@@ -108,30 +106,16 @@ def inject_current_path():
     return {'current_path': request.path}
 
 
-@app.context_processor
-def inject_base_url():
-    """Make BASE_URL available to all templates for GitHub Pages subpath support"""
-    base_url = app.config.get('BASE_URL', '')
-    # Extract path component from BASE_URL for static assets
-    if base_url and '://' in base_url:
-        # Parse domain.com/subpath -> /subpath
-        from urllib.parse import urlparse
-        parsed = urlparse(base_url)
-        base_path = parsed.path.rstrip('/')
-    else:
-        base_path = ''
-    return {'base_path': base_path}
-
 @app.route('/')
 def index():
     return render_template('index.html')
 
 
-@app.route('/now')
+@app.route('/now/')
 def now():
     return render_template('now.html')
 
-@app.route('/blog')
+@app.route('/blog/')
 def blog():
     posts = get_posts()
     # Group posts by year
@@ -149,7 +133,7 @@ def blog():
     )
     return render_template('blog.html', posts_by_year=posts_by_year, sorted_years=sorted_years)
 
-@app.route('/<slug>')
+@app.route('/<slug>/')
 def post(slug):
     # Security: validate slug format
     if not re.match(r'^[a-zA-Z0-9_-]+$', slug):
@@ -168,57 +152,10 @@ def post(slug):
     
     return render_template('post.html', post=post)
 
-@app.route('/404')
+@app.route('/404/')
 def page_not_found():
     """404 page for GitHub Pages"""
     return render_template('404.html'), 404
-
-@app.route('/feed.xml')
-def feed():
-    """Generate RSS feed"""
-    posts = get_posts()[:10]  # Last 10 posts
-    
-    # Get base URL from app config or request
-    base_url = app.config.get('BASE_URL') or request.url_root.rstrip('/')
-    
-    # Format date for RSS (RFC 822 format)
-    now = datetime.now()
-    last_build_date = now.strftime('%a, %d %b %Y %H:%M:%S +0000')
-    
-    rss = f'''<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
-    <channel>
-        <title>{escape(SITE_TITLE)}</title>
-        <description>{escape(SITE_DESCRIPTION)}</description>
-        <link>{base_url}</link>
-        <lastBuildDate>{last_build_date}</lastBuildDate>
-'''
-    
-    for post in posts:
-        if post['date']:
-            pub_date = post['date'].strftime('%a, %d %b %Y %H:%M:%S +0000')
-        else:
-            pub_date = last_build_date
-        
-        # Generate post URL
-        post_path = url_for('post', slug=post['slug'])
-        post_url = f"{base_url}{post_path}"
-        
-        post_title = escape(post['title'])
-        
-        rss += f'''        <item>
-            <title>{post_title}</title>
-            <link>{post_url}</link>
-            <pubDate>{pub_date}</pubDate>
-        </item>
-'''
-    
-    rss += '''    </channel>
-</rss>'''
-    
-    response = make_response(rss)
-    response.headers['Content-Type'] = 'application/rss+xml'
-    return response
 
 if __name__ == '__main__':
     app.run(debug=True)

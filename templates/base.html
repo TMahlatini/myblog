@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{% block description %}Digital garden for Terence Mahlatini's ideas and thoughts.{% endblock %}">
     <title>{% block title %}Terence Mahlatini's Digital Garden{% endblock %}</title>
-    <link rel="stylesheet" href="{{ base_path }}/static/style.css">
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ base_path }}/feed.xml">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     {% block extra_head %}{% endblock %}
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <header>
         <nav class="header-menu" aria-label="Main navigation">
-            <a href="{{ base_path }}/" class="header-menu__item {% if current_path == '/' %}header-menu__item--active{% endif %}" aria-current="{% if current_path == '/' %}page{% else %}false{% endif %}">Home</a>
-            <a href="{{ base_path }}/blog.html" class="header-menu__item {% if current_path == '/blog' %}header-menu__item--active{% endif %}" aria-current="{% if current_path == '/blog' %}page{% else %}false{% endif %}">Blog</a>
-            <a href="{{ base_path }}/now.html" class="header-menu__item {% if current_path == '/now' %}header-menu__item--active{% endif %}" aria-current="{% if current_path == '/now' %}page{% else %}false{% endif %}">Now</a>
+            <a href="{{ url_for('index') }}" class="header-menu__item {% if current_path == url_for('index') %}header-menu__item--active{% endif %}" aria-current="{% if current_path == url_for('index') %}page{% else %}false{% endif %}">Home</a>
+            <a href="{{ url_for('blog') }}" class="header-menu__item {% if current_path == url_for('blog') %}header-menu__item--active{% endif %}" aria-current="{% if current_path == url_for('blog') %}page{% else %}false{% endif %}">Blog</a>
+            <a href="{{ url_for('now') }}" class="header-menu__item {% if current_path == url_for('now') %}header-menu__item--active{% endif %}" aria-current="{% if current_path == url_for('now') %}page{% else %}false{% endif %}">Now</a>
         </nav>
     </header>
 

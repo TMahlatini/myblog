@@ -7,3 +7,4 @@ venv
 requirements.tx
 build/
 DEPLOYMENT.md
+__pycache__/

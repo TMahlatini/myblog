@@ -1,3 +1,4 @@
+<!-- htmlhint doctype-first:false -->
 {% extends "base.html" %}
 
 {% block title %}Home{% endblock %}
@@ -8,7 +9,7 @@
 <section class="home-intro">
     <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Terence Mahlatini" class="profile-image">
     <div class="intro-text">
-        <p>Hello, my name is Terence Mahlatini. You can learn more about this site <a href="/hello-world">here</a>.</p>
+        <p>Hello, my name is Terence Mahlatini. You can learn more about this site <a href="{{ url_for('post', slug='hello-world') }}">here</a>.</p>
     </div>
 </section>
 {% endblock %}
