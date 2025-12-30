@@ -3,7 +3,7 @@ import shutil
 from app import app, get_posts
 
 # Set base URL from environment variable or use default
-BASE_URL = os.environ.get('BASE_URL', 'https://TMahlatini.github.io')
+BASE_URL = os.environ.get('BASE_URL', 'https://TMahlatini.github.io/myblog')
 app.config['BASE_URL'] = BASE_URL
 
 # Output directory
