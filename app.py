@@ -155,8 +155,8 @@ def feed():
     """Generate RSS feed"""
     posts = get_posts()[:10]  # Last 10 posts
     
-    # Use url_for to generate proper URLs
-    base_url = request.url_root.rstrip('/')
+    # Get base URL from app config or request
+    base_url = app.config.get('BASE_URL') or request.url_root.rstrip('/')
     
     # Format date for RSS (RFC 822 format)
     now = datetime.now()
@@ -177,7 +177,13 @@ def feed():
         else:
             pub_date = last_build_date
         
-        post_url = f"{base_url}{url_for('post', slug=post['slug'])}"
+        # Use url_for with _external=True for absolute URLs
+        try:
+            post_url = url_for('post', slug=post['slug'], _external=True)
+        except RuntimeError:
+            # Fallback if outside request context (e.g., during freezing)
+            post_url = f"{base_url}{url_for('post', slug=post['slug'])}"
+        
         post_title = escape(post['title'])
         post_excerpt = escape(post.get('excerpt', ''))
         
