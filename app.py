@@ -65,9 +65,7 @@ def load_post_from_file(slug):
         'slug': slug,
         'title': metadata['title'],
         'date': metadata['date'],
-        'content': markdown.markdown(metadata['body']),
-        'excerpt': (metadata['body'].split('\n')[0][:150] + '...' 
-                   if len(metadata['body']) > 150 else metadata['body'])
+        'content': markdown.markdown(metadata['body'])
     }
 
 
@@ -79,7 +77,7 @@ def get_posts():
         return posts
     
     try:
-        filenames = sorted(os.listdir(POSTS_DIR), reverse=True)
+        filenames = os.listdir(POSTS_DIR)
     except (IOError, OSError):
         return posts
     
@@ -93,6 +91,7 @@ def get_posts():
         if post:
             posts.append(post)
     
+    # Sort by date (most recent first)
     posts.sort(key=lambda x: x['date'] or datetime.min, reverse=True)
     return posts
 
@@ -107,6 +106,21 @@ def inject_now():
 def inject_current_path():
     """Make current path available to all templates"""
     return {'current_path': request.path}
+
+
+@app.context_processor
+def inject_base_url():
+    """Make BASE_URL available to all templates for GitHub Pages subpath support"""
+    base_url = app.config.get('BASE_URL', '')
+    # Extract path component from BASE_URL for static assets
+    if base_url and '://' in base_url:
+        # Parse domain.com/subpath -> /subpath
+        from urllib.parse import urlparse
+        parsed = urlparse(base_url)
+        base_path = parsed.path.rstrip('/')
+    else:
+        base_path = ''
+    return {'base_path': base_path}
 
 @app.route('/')
 def index():
@@ -128,7 +142,11 @@ def blog():
             posts_by_year[year] = []
         posts_by_year[year].append(post)
     
-    sorted_years = sorted(posts_by_year.keys(), reverse=True)
+    # Sort years: numeric years descending, then 'Unknown' at the end
+    sorted_years = sorted(
+        posts_by_year.keys(),
+        key=lambda x: (x == 'Unknown', -x if isinstance(x, int) else 0)
+    )
     return render_template('blog.html', posts_by_year=posts_by_year, sorted_years=sorted_years)
 
 @app.route('/<slug>')
@@ -149,6 +167,11 @@ def post(slug):
         return "Post not found", 404
     
     return render_template('post.html', post=post)
+
+@app.route('/404')
+def page_not_found():
+    """404 page for GitHub Pages"""
+    return render_template('404.html'), 404
 
 @app.route('/feed.xml')
 def feed():
@@ -177,21 +200,16 @@ def feed():
         else:
             pub_date = last_build_date
         
-        # Use url_for with _external=True for absolute URLs
-        try:
-            post_url = url_for('post', slug=post['slug'], _external=True)
-        except RuntimeError:
-            # Fallback if outside request context (e.g., during freezing)
-            post_url = f"{base_url}{url_for('post', slug=post['slug'])}"
+        # Generate post URL
+        post_path = url_for('post', slug=post['slug'])
+        post_url = f"{base_url}{post_path}"
         
         post_title = escape(post['title'])
-        post_excerpt = escape(post.get('excerpt', ''))
         
         rss += f'''        <item>
             <title>{post_title}</title>
             <link>{post_url}</link>
             <pubDate>{pub_date}</pubDate>
-            <description><![CDATA[{post_excerpt}]]></description>
         </item>
 '''
     

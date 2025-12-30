@@ -16,7 +16,7 @@
             {% if post.date %}
             <time class="date" datetime="{{ post.date.strftime('%Y-%m-%d') }}">{{ post.date.strftime('%m/%d') }}</time>
             {% endif %}
-            <a href="{{ url_for('post', slug=post.slug) }}">{{ post.title }}</a>
+            <a href="{{ base_path }}/{{ post.slug }}/index.html">{{ post.title }}</a>
         </li>
         {% endfor %}
     </ul>
