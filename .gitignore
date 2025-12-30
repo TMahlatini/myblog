@@ -1,0 +1,9 @@
+posts/*
+README.*
+.*
+!.gitignore
+!.github/
+venv
+requirements.tx
+build/
+DEPLOYMENT.md
