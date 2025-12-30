@@ -1,30 +1,78 @@
 import os
-from werkzeug.routing import Map
-if not hasattr(Map, 'charset'):
-    Map.charset = 'utf-8'
-
-from flask_frozen import Freezer
+import shutil
 from app import app, get_posts
 
 # Set base URL from environment variable or use default
-# For GitHub Pages: if repo is username.github.io, use https://username.github.io
-# If repo is a project, use https://username.github.io/repo-name
 BASE_URL = os.environ.get('BASE_URL', 'https://TMahlatini.github.io')
 app.config['BASE_URL'] = BASE_URL
 
-# Additional compatibility: ensure url_map has charset attribute
-if not hasattr(app.url_map, 'charset'):
-    app.url_map.charset = 'utf-8'
+# Output directory
+BUILD_DIR = 'build'
 
-freezer = Freezer(app)
-
-@freezer.register_generator
-def post():
-    """Generate URLs for all blog posts."""
-    posts = get_posts()
-    for post in posts:
-        yield {'slug': post['slug']}
+def build_static_site():
+    """Build static site by rendering all routes."""
+    # Create build directory
+    if os.path.exists(BUILD_DIR):
+        shutil.rmtree(BUILD_DIR)
+    os.makedirs(BUILD_DIR, exist_ok=True)
+    
+    # Create test client with application context
+    with app.app_context():
+        client = app.test_client()
+        
+        # Build index page
+        print("Building index page...")
+        with app.test_request_context('/'):
+            response = client.get('/')
+            if response.status_code == 200:
+                with open(os.path.join(BUILD_DIR, 'index.html'), 'w', encoding='utf-8') as f:
+                    f.write(response.data.decode('utf-8'))
+        
+        # Build now page
+        print("Building now page...")
+        with app.test_request_context('/now'):
+            response = client.get('/now')
+            if response.status_code == 200:
+                with open(os.path.join(BUILD_DIR, 'now.html'), 'w', encoding='utf-8') as f:
+                    f.write(response.data.decode('utf-8'))
+        
+        # Build blog page
+        print("Building blog page...")
+        with app.test_request_context('/blog'):
+            response = client.get('/blog')
+            if response.status_code == 200:
+                with open(os.path.join(BUILD_DIR, 'blog.html'), 'w', encoding='utf-8') as f:
+                    f.write(response.data.decode('utf-8'))
+        
+        # Build RSS feed
+        print("Building RSS feed...")
+        with app.test_request_context('/feed.xml'):
+            response = client.get('/feed.xml')
+            if response.status_code == 200:
+                with open(os.path.join(BUILD_DIR, 'feed.xml'), 'w', encoding='utf-8') as f:
+                    f.write(response.data.decode('utf-8'))
+        
+        # Build individual post pages
+        print("Building post pages...")
+        posts = get_posts()
+        for post in posts:
+            slug = post['slug']
+            with app.test_request_context(f'/{slug}'):
+                response = client.get(f'/{slug}')
+                if response.status_code == 200:
+                    # Create directory for post
+                    post_dir = os.path.join(BUILD_DIR, slug)
+                    os.makedirs(post_dir, exist_ok=True)
+                    with open(os.path.join(post_dir, 'index.html'), 'w', encoding='utf-8') as f:
+                        f.write(response.data.decode('utf-8'))
+                    print(f"  Built: /{slug}")
+    
+    # Copy static files
+    print("Copying static files...")
+    if os.path.exists('static'):
+        shutil.copytree('static', os.path.join(BUILD_DIR, 'static'), dirs_exist_ok=True)
+    
+    print(f"\nStatic site built successfully in '{BUILD_DIR}' directory!")
 
 if __name__ == '__main__':
-    freezer.freeze()
-
+    build_static_site()
