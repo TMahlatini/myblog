@@ -4,7 +4,7 @@ import os
 import sys
 
 # Set base URL from environment variable or use default
-BASE_URL = os.environ.get('BASE_URL', 'https://TMahlatini.github.io/myblog')
+BASE_URL = os.environ.get('BASE_URL', '')
 app.config['FREEZER_BASE_URL'] = BASE_URL
 
 # Frozen-Flask configuration
