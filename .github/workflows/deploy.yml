@@ -30,7 +30,6 @@ jobs:
       - name: Build static site
         env:
           # Use BASE_URL secret if set, otherwise construct from repo info
-          # To set: Settings → Secrets and variables → Actions → New repository secret
           BASE_URL: ${{ secrets.BASE_URL || format('https://{0}.github.io/{1}', github.repository_owner, github.event.repository.name) }}
         run: |
           python freeze.py
