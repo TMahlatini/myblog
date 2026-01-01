@@ -11,7 +11,12 @@
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <header>
-        <nav class="header-menu" aria-label="Main navigation">
+        <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+            <span class="menu-toggle__bar"></span>
+        </button>
+        <nav id="main-navigation" class="header-menu" aria-label="Main navigation">
             <a href="{{ url_for('index') }}" class="header-menu__item {% if current_path == url_for('index') %}header-menu__item--active{% endif %}" aria-current="{% if current_path == url_for('index') %}page{% else %}false{% endif %}">Home</a>
             <a href="{{ url_for('blog') }}" class="header-menu__item {% if current_path == url_for('blog') %}header-menu__item--active{% endif %}" aria-current="{% if current_path == url_for('blog') %}page{% else %}false{% endif %}">Blog</a>
             <a href="{{ url_for('now') }}" class="header-menu__item {% if current_path == url_for('now') %}header-menu__item--active{% endif %}" aria-current="{% if current_path == url_for('now') %}page{% else %}false{% endif %}">Now</a>
@@ -25,6 +30,7 @@
     <footer>
         <p>&copy; {{ now.strftime('%Y') }} - Terence Mahlatini</p>
     </footer>
+    <script src="{{ url_for('static', filename='js/navigation.js') }}"></script>
 </body>
 </html>
 
