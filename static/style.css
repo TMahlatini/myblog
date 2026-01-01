@@ -12,7 +12,7 @@
     --radius-medium: 8px;
     --radius-large: 12px;
     
-    /* Colors */
+    /* Colors - Light Mode (default) */
     --color-text-primary: #333;
     --color-text-secondary: #666;
     --color-text-tertiary: #999;
@@ -38,10 +38,36 @@
     --transition-base: cubic-bezier(.5, 0, 0, 1) 0.2s;
 }
 
+/* Dark Mode Colors */
+[data-theme="dark"] {
+    --color-text-primary: #e4e4e4;
+    --color-text-secondary: #a0a0a0;
+    --color-text-tertiary: #707070;
+    --color-text-hover: #fff;
+    --color-bg-primary: #1a1a1a;
+    --color-bg-secondary: #242424;
+    --color-bg-tertiary: #2e2e2e;
+    --color-border-light: #2a2a2a;
+    --color-border: #333;
+    --color-border-medium: #404040;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* Smooth color transitions for theme switching */
+body,
+header,
+nav,
+footer,
+.header-menu,
+.header-menu__item,
+article,
+.profile-image {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .skip-link {
@@ -359,11 +385,47 @@ article .content a:hover {
 
 footer {
     margin-top: 4rem;
-    padding-top: var(--spacing-xl);
+    padding-top: var(--spacing-md);
+    font-size: var(--font-size-base);
+    justify-content: center;
     border-top: 1px solid var(--color-border);
-    text-align: center;
     color: var(--color-text-secondary);
     font-size: var(--font-size-base);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    gap: var(--spacing-md);
+}
+
+/* Dark Mode Toggle Text */
+.theme-toggle {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+    display: inline;
+    position: relative;
+    user-select: none;
+    margin-bottom: var(--spacing-md);
+}
+
+.theme-toggle:hover {
+    color: var(--color-text-hover);
+}
+
+
+
+.theme-toggle__text {
+    transition: opacity 0.2s ease;
+    opacity: 0;
+    position: absolute;
+    white-space: nowrap;
+}
+
+.theme-toggle__text.active {
+    opacity: 1;
+    position: relative;
 }
 
 a {
@@ -427,5 +489,11 @@ a:hover {
         width: 100%;
         height: auto;
         aspect-ratio: 400 / 175;
+    }
+    
+    /* Stack footer on mobile if needed */
+    footer {
+        flex-direction: column;
+        text-align: center;
     }
 }
