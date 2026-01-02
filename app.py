@@ -13,7 +13,8 @@ SITE_TITLE = "Terence Mahlatini"
 def parse_frontmatter(content, slug):
     """Parse frontmatter from markdown content and return metadata and body."""
     title = slug.replace('-', ' ').title()
-    date = None
+    published = None
+    modified = None
     body = content
     
     if content.startswith('---'):
@@ -26,16 +27,23 @@ def parse_frontmatter(content, slug):
                 line = line.strip()
                 if line.startswith('title:'):
                     title = line.split(':', 1)[1].strip().strip('"\'')
-                elif line.startswith('date:'):
+                elif line.startswith('published:'):
                     date_str = line.split(':', 1)[1].strip().strip('"\'')
                     try:
-                        date = datetime.strptime(date_str, '%Y-%m-%d')
+                        published = datetime.strptime(date_str, '%Y-%m-%d')
+                    except (ValueError, TypeError):
+                        pass
+                elif line.startswith('modified:'):
+                    date_str = line.split(':', 1)[1].strip().strip('"\'')
+                    try:
+                        modified = datetime.strptime(date_str, '%Y-%m-%d')
                     except (ValueError, TypeError):
                         pass
     
     return {
         'title': title,
-        'date': date,
+        'published': published,
+        'modified': modified,
         'body': body
     }
 
@@ -62,13 +70,14 @@ def load_post_from_file(slug):
     return {
         'slug': slug,
         'title': metadata['title'],
-        'date': metadata['date'],
+        'published': metadata['published'],
+        'modified': metadata['modified'],
         'content': markdown.markdown(metadata['body'])
     }
 
 
 def get_posts():
-    """Get all posts sorted by date."""
+    """Get all posts sorted by published date."""
     posts = []
     
     if not os.path.exists(POSTS_DIR):
@@ -89,8 +98,8 @@ def get_posts():
         if post:
             posts.append(post)
     
-    # Sort by date (most recent first)
-    posts.sort(key=lambda x: x['date'] or datetime.min, reverse=True)
+    # Sort by published date (most recent first)
+    posts.sort(key=lambda x: x['published'] or datetime.min, reverse=True)
     return posts
 
 
@@ -121,7 +130,7 @@ def blog():
     # Group posts by year
     posts_by_year = {}
     for post in posts:
-        year = post['date'].year if post['date'] else 'Unknown'
+        year = post['published'].year if post['published'] else 'Unknown'
         if year not in posts_by_year:
             posts_by_year[year] = []
         posts_by_year[year].append(post)

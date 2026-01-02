@@ -6,9 +6,13 @@
 {% block content %}
 <article>
     <h1>{{ post.title }}</h1>
-    {% if post.date %}
+    {% if post.published %}
     <div class="meta">
-        <time class="date" datetime="{{ post.date.strftime('%Y-%m-%d') }}">{{ post.date.strftime('%B %d, %Y') }}</time>
+        <time class="date" datetime="{{ post.published.strftime('%Y-%m-%d') }}">Published: {{ post.published.strftime('%B %d, %Y') }}</time>
+        {% if post.modified %}
+        <span class="separator"> • </span>
+        <time class="date modified" datetime="{{ post.modified.strftime('%Y-%m-%d') }}">Last modified: {{ post.modified.strftime('%B %d, %Y') }}</time>
+        {% endif %}
     </div>
     {% endif %}
     <div class="content">

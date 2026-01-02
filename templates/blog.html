@@ -14,8 +14,8 @@
     <ul class="posts posts-by-year">
         {% for post in posts_by_year[year] %}
         <li class="{% if not loop.last %}post-item{% else %}post-item post-item-last-in-year{% endif %}">
-            {% if post.date %}
-            <time class="date" datetime="{{ post.date.strftime('%Y-%m-%d') }}">{{ post.date.strftime('%m/%d') }}</time>
+            {% if post.published %}
+            <time class="date" datetime="{{ post.published.strftime('%Y-%m-%d') }}">{{ post.published.strftime('%m/%d') }}</time>
             {% endif %}
             <a href="{{ url_for('post', slug=post.slug) }}">{{ post.title }}</a>
         </li>
