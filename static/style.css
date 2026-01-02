@@ -309,13 +309,25 @@ ul.posts a:hover {
 }
 
 .meta {
+    margin-top: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
-    padding-bottom: var(--spacing-md);
-    border-bottom: 1px solid var(--color-border-light);
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-small);
+}
+
+.meta .separator {
+   
+    padding-left: 0em;
+    padding-right: 0.65em;
 }
 
 article {
     margin-top: var(--spacing-xl);
+}
+
+article h1 {
+    text-align: center;
 }
 
 article .content {
@@ -383,25 +395,27 @@ article .content a:hover {
     color: var(--color-text-hover);
 }
 
-.back-link {
-    margin-top: var(--spacing-xl);
-    padding-top: var(--spacing-lg);
-    border-top: 1px solid var(--color-border-light);
-}
-
 footer {
     margin-top: 4rem;
     padding-top: var(--spacing-md);
     font-size: var(--font-size-base);
-    justify-content: center;
+    text-align: center;
     border-top: 1px solid var(--color-border);
     color: var(--color-text-secondary);
-    font-size: var(--font-size-base);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    
-    gap: var(--spacing-md);
+}
+
+footer a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+footer a:hover {
+    color: var(--color-text-primary);
+}
+
+footer .separator {
+    color: var(--color-text-secondary);
 }
 
 /* Dark Mode Toggle Text */
@@ -413,7 +427,6 @@ footer {
     display: inline;
     position: relative;
     user-select: none;
-    margin-bottom: var(--spacing-md);
 }
 
 .theme-toggle:hover {
