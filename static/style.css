@@ -293,7 +293,7 @@ ul.posts a:hover {
 .profile-image {
     max-width: 100%;
     width: 600px;
-    height: 250px;
+    height: 500px;
     border-radius: 0;
     object-fit: cover;
     margin: 0 auto var(--spacing-lg);
