@@ -292,8 +292,10 @@ ul.posts a:hover {
 
 .profile-image {
     max-width: 100%;
-    width: 600px;
-    height: 500px;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    aspect-ratio: 6 / 5;
     border-radius: 0;
     object-fit: cover;
     margin: 0 auto var(--spacing-lg);
@@ -507,7 +509,8 @@ a:hover {
     .profile-image {
         width: 100%;
         height: auto;
-        aspect-ratio: 400 / 175;
+        aspect-ratio: 4 / 3;
+        max-width: 100%;
     }
     
     /* Stack footer on mobile if needed */
