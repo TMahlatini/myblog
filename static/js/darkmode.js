@@ -12,7 +12,7 @@
 
 
     function getSavedTheme() {
-        return localStorage.getItem(THEME_KEY) || THEME_LIGHT;
+        return localStorage.getItem(THEME_KEY) || THEME_DARK;
     }
 
 
