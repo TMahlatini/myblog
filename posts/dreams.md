@@ -26,11 +26,12 @@ When I started college, medical school was my goal. But after a grueling chemist
 
 During the summer of 2023, I interned in Harare with Uncommon, an NGO working to make Zimbabwe the most tech-literate country on the continent. Between engineering tasks and helping teach classes, I began to feel the weight of the infrastructure gap. A twenty-year gap was probably a conservative estimate back then, and the distance is only growing with the AI race in full swing.
 
-Initially, CS felt like a good compromise between my first dream and reality because it catered to my interests. But now, beyond my own professional growth, the stakes feel higher. The commitment to give back is still humming in the background, and CS is my default tool for now. 
+Initially, CS felt like a good compromise between my first dream and reality because it catered to my interests. But now, beyond my own professional growth, the stakes feel higher. The commitment to give back is still humming in the background, and CS is my default avenue for now. 
 
 
 <center>**Conclusion**</center>
 
-The pediatrician didn’t die; he simply evolved. I started this reflection skeptical of whether I could ever truly "know myself" or distinguish my "true" dreams from the ones I’ve simply inherited. To be honest, I still haven't found that certainty. I don’t know if my drive to change Zimbabwe is a soul-deep calling or a beautiful rationalization for the opportunities I’ve been given.
-But perhaps, in the absence of an algorithm for life, that distinction doesn't matter as much as I think. What matters is the "hum" that persists at every turn—the undeniable urge to be of use. I have been given resources on a condition, and I guess all of this is an attempt to figure out: are the dreams a response to the contract, or is the contract a response to the dreams?
+The pediatrician didn’t die; he simply evolved. I started this reflection skeptical of whether I could ever truly distinguish my "true" dreams from the ones I’ve simply inherited, and to be honest, I still haven't found that certainty. I don’t know if my drive to change Zimbabwe is a soul-deep calling or a beautiful rationalization for the opportunities I’ve been given.
+
+But perhaps, in the absence of an algorithm for life, that distinction doesn't matter as much as I think. What matters is the "hum" that persists at every turn—the undeniable urge to give back. I have been given resources on a condition, and I guess all of this is an attempt to figure out: are the dreams a response to the contract, or is the contract a response to the dreams?
 
