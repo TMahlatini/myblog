@@ -1,7 +1,7 @@
 ---
 title: Death
 published: 2026-01-04
-modified: 2026-01-15
+modified: 2026-01-23
 ---
 
 I have been thinking about death a lot lately. Usually, the thoughts are sporadic, triggered by tragic events around the world or close to home. In the past, I was careful not to let my mind wander too far; I was afraid I would scare myself into hiding. Being constantly conscious of your mortality is a heavy load to carry, but lately, I’ve decided I would like to carry it.
@@ -10,7 +10,7 @@ This past Christmas, I visited my cousins, who had just been blessed with a newb
 
 I used to think I was simply afraid of the finality of death—the inescapable erasure of my existence. However, I’ve realized there is something else at play: my fear of death is actually the full manifestation of my fear of failure. It is the fear of leaving my potential unrealized. The tragedy of death is that there are no redos. Whatever convictions or experiences you have accumulated when the bell tolls, that’s it; there are no more opportunities to remedy past failures.
 
-I want to prevent the scenario where I am on my deathbed, plagued by regret. My first step is redefining the popular aphorism “YOLO.” I want to divorce it from the impulsivity usually associated with it. My working definition is: You Only Live Once! Don’t let the cliché distract you from the gravity of the statement. To me, it represents intentionality, a solemn appreciation of the fact that I only have one shot at this.
+I want to prevent the scenario where I am on my deathbed, plagued by regret. My first step is redefining the popular aphorism “YOLO.” I want to divorce it from the impulsivity usually associated with it. My working definition is: <i>**You Only Live Once!**</i> Don’t let the irony distract you from the boldface. To me, it represents intentionality, a solemn appreciation of the fact that I only have one shot at this.
 
 Truly appreciating that tomorrow is not guaranteed is a massive feat. I respect and envy those who have reached that summit. My wish is to reach it, too. I want to be able to look at death and smile, rather than shrinking at the thought of unfulfilled dreams. I want it to be an honest smile—the smile of someone who appreciated the gift of life and tried his best never to take it for granted.
 
