@@ -7,6 +7,7 @@ import re
 app = Flask(__name__)
 
 POSTS_DIR = 'posts'
+CONTENT_DIR = 'content'
 SITE_TITLE = "Terence Mahlatini"
 
 
@@ -48,13 +49,11 @@ def parse_frontmatter(content, slug):
     }
 
 
-def load_post_from_file(slug):
-    """Load and parse a single post file."""
+def load_markdown_file(filepath, slug):
+    """Load and parse a markdown file with optional frontmatter."""
     # Security: prevent path traversal
     if not re.match(r'^[a-zA-Z0-9_-]+$', slug):
         return None
-    
-    filepath = os.path.join(POSTS_DIR, f'{slug}.md')
     
     if not os.path.exists(filepath):
         return None
@@ -68,11 +67,24 @@ def load_post_from_file(slug):
     metadata = parse_frontmatter(content, slug)
     
     return {
-        'slug': slug,
         'title': metadata['title'],
         'published': metadata['published'],
         'modified': metadata['modified'],
         'content': markdown.markdown(metadata['body'])
+    }
+
+
+def load_post_from_file(slug):
+    """Load and parse a single post file."""
+    filepath = os.path.join(POSTS_DIR, f'{slug}.md')
+    post = load_markdown_file(filepath, slug)
+    
+    if not post:
+        return None
+    
+    return {
+        'slug': slug,
+        **post
     }
 
 
@@ -122,7 +134,9 @@ def index():
 
 @app.route('/now/')
 def now():
-    return render_template('now.html')
+    now_content_path = os.path.join(CONTENT_DIR, 'now.md')
+    now_card = load_markdown_file(now_content_path, 'now')
+    return render_template('now.html', now_card=now_card)
 
 @app.route('/blog/')
 def blog():
@@ -167,5 +181,5 @@ def page_not_found():
     return render_template('404.html'), 404
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5001)
+    app.run(debug=True, host='0.0.0.0', port=5002)
 

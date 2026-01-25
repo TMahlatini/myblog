@@ -4,19 +4,76 @@
 
 {% block description %}What Terence Mahlatini is currently focused on.{% endblock %}
 
+{% block body_class %}now-page{% endblock %}
+
 {% block content %}
-<article>
-    <div class="content">
-        <p>This is a <a href="https://nownownow.com/about" rel="noopener noreferrer">now page</a>. It tells you what I'm focused on right now.</p>
+<div class="now-container">
+    <div class="now-cards">
 
-        <h2>Currently</h2>
-        <ul>
-            <li>Studying for the RHCE exam.</li>
-            <li>Trying to figure out how to effectively make use of this page.</li>
-        </ul>
 
-        <p><em>Last updated: <time datetime="{{ now.strftime('%Y-%m-%d') }}">{{ now.strftime('%B %d, %Y') }}</time></em></p>
-    </div>
-</article>
+        <!-- Weather Card (Placeholder) -->
+        <article class="card card--tall card--weather card--placeholder" aria-label="Weather card - coming soon">
+            <div class="card__header">
+                <span class="card__icon">🌤️</span>
+                <h2 class="card__title">Weather</h2>
+            </div>
+            <div class="card__body">
+                <div class="card__content">
+                    Weather data loading...
+                </div>
+            </div>
+        </article>
+
+        <!-- Clock Card (Placeholder) -->
+        <article class="card card--wide card--clock card--placeholder" aria-label="Clock card - coming soon">
+            <div class="card__header">
+                <span class="card__icon">🕐</span>
+                <h2 class="card__title">Clock</h2>
+            </div>
+            <div class="card__body">
+                <div class="clock-display">00:00:00</div>
+            </div>
+        </article>
+
+
+
+        <!-- Music Card (Placeholder) -->
+        <article class="card card--music card--placeholder" aria-label="Music card - coming soon">
+            <div class="card__header">
+                <span class="card__icon">🎵</span>
+                <h2 class="card__title">Listening To</h2>
+            </div>
+            <div class="card__body">
+                <div class="card__content">
+                    Music integration coming soon
+                </div>
+            </div>
+        </article>
+
+        <!-- filler card -->
+        <article class="card card--filler">
+        </article>
+
+
+        <!-- Writing Card -->
+        <article class="card card--extra-wide card--writing">
+            <div class="card__header">
+                <h2 class="card__title">
+                    {{ (now_card.title if now_card else "What I'm up to") }}
+                </h2>
+            </div>
+            <div class="card__body">
+                <div class="card__content">
+                    {% if now_card %}
+                        {{ now_card.content | safe }}
+                    {% endif %}
+                </div>
+            </div>
+        </article>
+
+
+ 
+
+</div>
 {% endblock %}
 
