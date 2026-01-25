@@ -4,6 +4,10 @@
 
 {% block description %}What Terence Mahlatini is currently focused on.{% endblock %}
 
+{% block extra_head %}
+    <script defer src="{{ url_for('static', filename='js/clock.js') }}"></script>
+{% endblock %}
+
 {% block body_class %}now-page{% endblock %}
 
 {% block content %}
@@ -24,14 +28,14 @@
             </div>
         </article>
 
-        <!-- Clock Card (Placeholder) -->
-        <article class="card card--wide card--clock card--placeholder" aria-label="Clock card - coming soon">
+        <!-- Clock Card -->
+        <article class="card card--wide card--clock" aria-label="Clock card - Urbana-Champaign time">
             <div class="card__header">
                 <span class="card__icon">🕐</span>
-                <h2 class="card__title">Clock</h2>
+                <h2 class="card__title">Clock (Urbana-Champaign)</h2>
             </div>
             <div class="card__body">
-                <div class="clock-display">00:00:00</div>
+                <div class="clock-display" data-clock="urbana">00:00:00</div>
             </div>
         </article>
 
@@ -72,8 +76,7 @@
         </article>
 
 
- 
-
+</div>
 </div>
 {% endblock %}
 
