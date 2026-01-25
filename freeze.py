@@ -23,7 +23,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'serve':
         # Serve the built site locally
         print("Serving static site from 'build' directory...")
-        freezer.run(debug=True)
+        freezer.run(debug=True )
     else:
         # Build the site
         print("Freezing the site...")

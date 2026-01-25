@@ -6,6 +6,7 @@
 
 {% block extra_head %}
     <script defer src="{{ url_for('static', filename='js/clock.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='js/weather.js') }}"></script>
 {% endblock %}
 
 {% block body_class %}now-page{% endblock %}
@@ -15,16 +16,31 @@
     <div class="now-cards">
 
 
-        <!-- Weather Card (Placeholder) -->
-        <article class="card card--tall card--weather card--placeholder" aria-label="Weather card - coming soon">
-            <div class="card__header">
-                <span class="card__icon">🌤️</span>
-                <h2 class="card__title">Weather</h2>
+        <!-- Weather Card -->
+        <article class="card card--tall card--weather" aria-label="Weather forecast for Urbana-Champaign">
+            <div class="card__header weather-card__header">
+                <h2 class="card__title weather-card__title">Weather Forecast (Urbana-Champaign)</h2>
             </div>
-            <div class="card__body">
-                <div class="card__content">
-                    Weather data loading...
+            <div class="card__body weather-card__body" data-weather-card>
+                <div class="weather-card__current">
+                    <span class="weather-card__current-day" data-weather-day>Today</span>
+                    <span class="weather-card__current-temp" data-weather-current>--°C</span>
                 </div>
+                <div class="weather-card__forecast">
+                    <div class="weather-card__forecast-day">
+                        <span class="weather-card__forecast-label" data-weather-forecast-day>---</span>
+                        <span class="weather-card__forecast-temp" data-weather-forecast-temp>--°C</span>
+                    </div>
+                    <div class="weather-card__forecast-day">
+                        <span class="weather-card__forecast-label" data-weather-forecast-day>---</span>
+                        <span class="weather-card__forecast-temp" data-weather-forecast-temp>--°C</span>
+                    </div>
+                    <div class="weather-card__forecast-day">
+                        <span class="weather-card__forecast-label" data-weather-forecast-day>---</span>
+                        <span class="weather-card__forecast-temp" data-weather-forecast-temp>--°C</span>
+                    </div>
+                </div>
+                <div class="weather-card__status" data-weather-status>Loading weather...</div>
             </div>
         </article>
 
