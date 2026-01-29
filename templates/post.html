@@ -3,6 +3,10 @@
 
 {% block title %}{{ post.title }}{% endblock %}
 
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/lightbox.css') }}">
+{% endblock %}
+
 {% block content %}
 <article>
     <h1>{{ post.title }}</h1>
@@ -30,5 +34,6 @@
 </span>
 <span class="separator"> | </span>
 <a href="mailto:hello@terencemahlatini.com?subject=Re: {{ post.title | urlencode }}">Reply via email</a>
+<script src="{{ url_for('static', filename='js/lightbox.js') }}"></script>
 {% endblock %}
 

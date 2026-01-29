@@ -27,7 +27,7 @@ When I started college, medical school was my goal. But after a grueling chemist
 
 During the summer of 2023, I interned in Harare with Uncommon, an NGO working to make Zimbabwe the most tech-literate country on the continent. Between engineering tasks and helping teach classes, I began to feel the weight of the infrastructure gap. A twenty-year gap was probably a conservative estimate back then, and the distance is only growing with the AI race in full swing.
 
-Initially, CS felt like a good compromise between my first dream and reality because it catered to my interests. But now, beyond my own professional growth, the stakes feel higher. The commitment to give back is still humming in the background, and the big question for me now is what is the role for CS in this commitment. 
+Initially, CS felt like a good compromise between my first dream and reality because it catered to my interests. But now, beyond my own professional growth, the stakes feel higher. The commitment to give back is still humming in the background, and the big question for me now is the role of software engineering in this commitment. 
 
 <center>**Conclusion**</center>
 
