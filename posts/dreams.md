@@ -23,7 +23,7 @@ This experience set into motion a series of reflections on what it means to be Z
 
 In life, certainty is hard to find. However, in CS when the code runs, you have a form of "truth" (it works, or it doesn't).
 
-When I started college, medical school was my goal. But after a grueling chemistry class in my first semester, and a sobering look at the obstacles facing an international medical student, I decided to reconsider. I tried CS, and the shift was immediate. CS offered a feedback loop that the natural sciences lacked: you write, you fail, you debug, you succeed. It provided a "tangible abstraction" that felt right to me.
+When I started college, medical school was my goal. But after a very hard chemistry class in my first semester, and a sobering look at the obstacles facing an international medical student, I decided to reconsider. I tried CS, and the shift was immediate. CS offered a feedback loop that the natural sciences lacked: you write, you fail, you debug, you succeed. It provided a "tangible abstraction" that felt right to me.
 
 During the summer of 2023, I interned in Harare with Uncommon, an NGO working to make Zimbabwe the most tech-literate country on the continent. Between engineering tasks and helping teach classes, I began to feel the weight of the infrastructure gap. A twenty-year gap was probably a conservative estimate back then, and the distance is only growing with the AI race in full swing.
 
@@ -31,7 +31,7 @@ Initially, CS felt like a good compromise between my first dream and reality bec
 
 <center>**Conclusion**</center>
 
-The pediatrician didn’t die; he simply evolved. I started this reflection skeptical of whether I could ever truly distinguish my "true" dreams from the ones I’ve simply inherited, and to be honest, I still haven't found that certainty. I don’t know if my drive to change Zimbabwe is a soul-deep calling or a beautiful rationalization for the opportunities I’ve been given.
+The pediatrician didn’t die; he simply evolved. However, its still not clear to me if my drive to change Zimbabwe is a soul-deep calling or a beautiful rationalization for the opportunities I’ve been given.
 
-But perhaps, in the absence of an algorithm for life, that distinction doesn't matter as much as I think. What matters is the "hum" that persists at every turn, the undeniable urge to give back. I have been given resources on the condition I have a dream, and I guess all of this is an attempt to figure out: are the dreams a response to the contract, or is the contract a response to the dreams?
+But perhaps, in the absence of an algorithm for life, that distinction doesn't matter as much as I think. I have been given resources on the condition I have a dream, and I guess all of this is an attempt to figure out: are the dreams a response to the contract, or is the contract a response to the dreams?
 
