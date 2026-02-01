@@ -51,7 +51,6 @@ def parse_frontmatter(content, slug):
 
 def load_markdown_file(filepath, slug):
     """Load and parse a markdown file with optional frontmatter."""
-    # Security: prevent path traversal
     if not re.match(r'^[a-zA-Z0-9_-]+$', slug):
         return None
     
@@ -70,7 +69,7 @@ def load_markdown_file(filepath, slug):
         'title': metadata['title'],
         'published': metadata['published'],
         'modified': metadata['modified'],
-        'content': markdown.markdown(metadata['body'])
+        'content': markdown.markdown(metadata['body'], extensions=['pymdownx.tilde'])
     }
 
 
@@ -110,7 +109,6 @@ def get_posts():
         if post:
             posts.append(post)
     
-    # Sort by published date (most recent first)
     posts.sort(key=lambda x: x['published'] or datetime.min, reverse=True)
     return posts
 
