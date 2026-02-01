@@ -14,7 +14,7 @@ Technology is evolving faster than we can adapt. If we don’t become conscious 
 
 Over the past couple of months I have been reflecting on my social media use and I didn’t like it one bit. On the positive front, I have managed to avoid downloading TikTok and I quit Instagram and Facebook freshman year of college. But I was addicted to X and YouTube, it wasn’t pretty. Last November I convinced myself to go the whole month without X and it was refreshing. Who knew my mood would improve so much without the constant bombardment of “the world is on fire”? 
 
-In December I uninstalled YouTube on my phone and limited its use to my laptop. I think I have earned back several hours by ending the doomscrolling. Since then I have limited my time on X and YouTube shorts to an hour a week(here is the link to the extension I use). It's still a work in progress, now and then I find myself mindlessly watching YouTube videos. As for LinkedIn, another dangerously toxic platform that doesn’t get its “credit”,  I am simply waiting for my career to stabilize before I purge my account. 
+In December I uninstalled YouTube on my phone and limited its use to my laptop. I think I have earned back several hours by ending the doomscrolling. Since then I have limited my time on X and YouTube shorts to an hour a week (<a href="https://chromewebstore.google.com/detail/blaaajhemilngeeffpbfkdjjoefldkok?utm_source=item-share-cb" >this is the extension I use</a>). It's still a work in progress, now and then I find myself mindlessly watching YouTube videos. As for LinkedIn, another dangerously toxic platform that doesn’t get its “credit”,  I am simply waiting for my career to stabilize before I purge my account. 
 
 
 
