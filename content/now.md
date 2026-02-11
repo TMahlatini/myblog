@@ -3,7 +3,7 @@ title: What I'm up to
 modified: 2026-01-25
 ---
 
-- Currently studying for the RHCE exam. 
+- ~~Currently studying for the RHCE exam.~~ 
 - Trying to finish Crime and Punishment (i am embarrased on how long this book has taken me) and it doesn't help that I have started re-reading the Foundation series. I am also reading Cloud Computing for Dummies.
 - Drafting thoughts on ~~social media use~~ and Human ingenuity. 
 
