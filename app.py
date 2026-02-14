@@ -69,7 +69,10 @@ def load_markdown_file(filepath, slug):
         'title': metadata['title'],
         'published': metadata['published'],
         'modified': metadata['modified'],
-        'content': markdown.markdown(metadata['body'], extensions=['pymdownx.tilde'])
+        'content': markdown.markdown(
+            metadata['body'],
+            extensions=['fenced_code', 'pymdownx.tilde']
+        )
     }
 
 
