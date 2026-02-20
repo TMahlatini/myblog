@@ -295,8 +295,8 @@ ul.posts a:hover {
     width: 100%;
     max-width: 600px;
     height: auto;
-    aspect-ratio: 6 / 5;
-    border-radius: 0;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
     object-fit: cover;
     margin: 0 auto var(--spacing-lg);
     display: block;
