@@ -17,7 +17,7 @@ My first dream was born sometime during my primary school years. It was during t
 
 Identity is often invisible until you are removed from your element. When I left Zimbabwe for an international high school, I became acutely aware of my Zimbabwean identity for the first time. I had three roommates—British, Bangladeshi, and Chinese—and naturally, every orientation ice-breaker centered on our origins. Because I was the only Zimbabwean on campus, I was forced to think and articulate truths about my country that I truly never paid attention to. The unfortunate/fortunate part: I couldn’t offload the burden of “knowing” my country to anyone around me; I was the sole representative. 
 
-This experience set into motion a series of reflections on what it means to be Zimbabwean, a process that has lasted six years without reaching a neat resolution. However, some things are starting to come into focus. It is obvious to me now that I love my home country. I have been awarded multiple scholarships and grants that come with no strings attached, except the promise to give back. In a way, it feels as though the "act of service" I’ve committed to hinges entirely on me resolving this identity crisis. While the details are still forming, one thing is certain: I have a dream for a better Zimbabwe.
+This experience set into motion a series of reflections on what it means to be Zimbabwean, a process that seems will last a life time as I haven't reached a neat resolution and it's been six years. However, some things are starting to come into focus. It is obvious to me now that I love my home country. I have been awarded multiple scholarships and grants that come with no strings attached, except the promise to give back. In a way, it feels as though the "act of service" I’ve committed to hinges entirely on me unravelling more about my national identity. While the details are still forming, one thing is certain: I have a dream for a better Zimbabwe.
 
 <center>**The Computer Scientist**</center> 
 
@@ -31,7 +31,7 @@ Initially, CS felt like a good compromise between my first dream and reality bec
 
 <center>**Conclusion**</center>
 
-The pediatrician didn’t die; he simply evolved. However, its still not clear to me if my drive to change Zimbabwe is a soul-deep calling or a beautiful rationalization for the opportunities I’ve been given.
+The pediatrician didn’t die; he simply evolved. However, its still not clear to me if my drive to change Zimbabwe is a soul-deep calling or a beautiful rationalization for the opportunities I’ve been given.I have been given resources on the condition I have a dream, and I guess all of this is an attempt to figure out: are the dreams a response to the contract, or is the contract a response to the dreams?
 
-But perhaps, in the absence of an algorithm for life, that distinction doesn't matter as much as I think. I have been given resources on the condition I have a dream, and I guess all of this is an attempt to figure out: are the dreams a response to the contract, or is the contract a response to the dreams?
+But perhaps, in the absence of an algorithm for life, that distinction doesn't matter as much as I think. 
 

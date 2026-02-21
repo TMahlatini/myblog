@@ -11,7 +11,7 @@ Since first reading that, I have wanted to reflect more broadly on human ingenui
 
 Occasionally, I try to explain what I do at work to my dad. Last week, I found it particularly difficult to explain my current project. Because my description wasn't satisfactory, I decided to write about it as simply as I can for his benefit—and perhaps, in the process, awaken your senses to the "indifference engine" already running inside you. With the rapid evolution of AI, it’s easy to forget that it is all ones and zeros underneath. The complexity of it all has been cleverly abstracted away and it's so good you can’t be bothered to ask how your phone can talk back to you. 
 
-Let’s talk about compilers.(Disclaimer: I have oversimplified some of the concepts but the principles remain)
+Let’s talk about compilers.(Disclaimer: I have oversimplified some of the concepts but the core principles remain)
 
 **What is a compiler?**
 
