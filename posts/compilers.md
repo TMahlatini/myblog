@@ -5,7 +5,7 @@ published: 2026-02-21
 
 A month or two ago, I read a blog post titled [“The indifference engine”.](https://ponnekanti.net/indifference/) For brevity, I’ve extracted a paragraph that summarizes the core idea: 
 
-“...Perhaps the greatest faculty we developed in this gestation was not civilisation, but dispassion to its fruits: to be awed is human, to be indifferent divine. The more I think about this indifference the more remarkable it seems to me. The capacity to be apathetic to an iPhone is a far greater feat than to actually make the iPhone; it is a small miracle that people don’t instantly collapse into psychosis when they see one.” 
+*“...Perhaps the greatest faculty we developed in this gestation was not civilisation, but dispassion to its fruits: to be awed is human, to be indifferent divine. The more I think about this indifference the more remarkable it seems to me. The capacity to be apathetic to an iPhone is a far greater feat than to actually make the iPhone; it is a small miracle that people don’t instantly collapse into psychosis when they see one.”* 
 
 Since first reading that, I have wanted to reflect more broadly on human ingenuity. However, I’ve decided to narrow my focus to software engineering—specifically, the ingenuity of compilers. My current project at work involves researching how artificial neural networks are compiled for various deployment strategies, and it is fascinating, to say the least.  
 
