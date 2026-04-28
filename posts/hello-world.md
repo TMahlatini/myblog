@@ -4,15 +4,11 @@ published: 2025-12-29
 modified: 2026-02-12
 ---
 
-Essentially, this site is a digital notebook. I use this space to explore anything I find interesting or worth reflecting on; as such, some posts will be more polished than others. You can find my writings on the [blog page](/blog/), and the now page is short summary of what I am currently focused on(it needs some work). The now page is inspired by Derek Sivers' [now page movement](https://nownownow.com/about). 
-
-**Quick facts about me**
-
-I was born and raised in Gweru, Zimbabwe. Last May, I graduated from Whitman College with a B.A. in Computer Science. Currently, I am based in Illinois, USA, working at MulticoreWare.
+Essentially, this site is a digital notebook. I use this space to explore anything I find interesting or worth reflecting on. You can find my writings on the [blog page](/blog/), and the now page is short summary of what I am currently focused on. The now page is inspired by Derek Sivers' [now page movement](https://nownownow.com/about). 
 
 **Why I am writing here?** 
 
-I have chosen to host these thoughts on the open web partly as a rebellion against the social media format, and it feels good having some real estate on the internet. 
+I have chosen to host these thoughts on the open web partly as a rebellion against the social media format, and it just feels good having some real estate on the internet. 
 
 **A parting quote:**
 

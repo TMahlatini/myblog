@@ -12,11 +12,5 @@ One of my hobbies is engaging friends, family and strangers on a variety of subj
 
 Technology is evolving faster than we can adapt. If we don’t become conscious of the fact we will be in trouble, and in many ways, we already are. Think about it honestly: when was the last time you sat in silence with no devices, just you and your thoughts? The urge to scroll and consume media is evolving into something primal. We can hardly resist pulling out our phones at the slightest tinge of awkwardness or inconvenience when we are around people. Worse still, even without people around, noticing our own presence when the movie plot gets a little weak is too much so we scroll until the next exciting thing happens. 
 
-Over the past couple of months I have been reflecting on my social media use and I didn’t like where it was going. On the positive front, I have managed to avoid downloading TikTok and I quit Instagram and Facebook freshman year of college, but I was addicted to X and YouTube. Last November I convinced myself to go the whole month without X and it was a breath of fresh air. It turns out not constantly consuming content that highlights the worst of human nature will make you feel better.  
-
-In December I uninstalled YouTube on my phone and limited its use to my laptop. I think I have earned back several hours. Since then I have limited my time on X and YouTube shorts to an hour a week and only from the browser not apps.(<a href="https://chromewebstore.google.com/detail/blaaajhemilngeeffpbfkdjjoefldkok?utm_source=item-share-cb" >This is the extension I use</a>). As for LinkedIn, another dangerously toxic platform that doesn’t get its “credit”,  I am simply waiting for my career to stabilize before I purge my account. 
-
-My account of social media use is by no means a prescription to anyone; however I hope it can encourage an honest reflection on the subject.
-
 ***A parting quote:*** ``` “For, after all, how do we know that two and two make four? Or that the force of gravity works? Or that the past is unchangeable? If both the past and the external world exist only in the mind, and if the mind itself is controllable – what then?” ― George Orwell, 1984
 ```
