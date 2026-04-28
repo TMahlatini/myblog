@@ -1,98 +1,20 @@
+<!-- htmlhint doctype-first:false -->
 {% extends "base.html" %}
 
 {% block title %}Now{% endblock %}
 
 {% block description %}What Terence Mahlatini is currently focused on.{% endblock %}
 
-{% block extra_head %}
-    <script defer src="{{ url_for('static', filename='js/clock.js') }}"></script>
-    <script defer src="{{ url_for('static', filename='js/weather.js') }}"></script>
-{% endblock %}
-
 {% block body_class %}now-page{% endblock %}
 
 {% block content %}
-<div class="now-container">
-    <div class="now-cards">
-
-
-        <!-- Weather Card -->
-        <article class="card card--tall card--weather" aria-label="Weather forecast for Urbana-Champaign">
-            <div class="card__header weather-card__header">
-                <h2 class="card__title weather-card__title">Weather Forecast (Urbana-Champaign)</h2>
-            </div>
-            <div class="card__body weather-card__body" data-weather-card>
-                <div class="weather-card__current">
-                    <span class="weather-card__current-day" data-weather-day>Today</span>
-                    <span class="weather-card__current-temp" data-weather-current>--°C</span>
-                </div>
-                <div class="weather-card__forecast">
-                    <div class="weather-card__forecast-day">
-                        <span class="weather-card__forecast-label" data-weather-forecast-day>---</span>
-                        <span class="weather-card__forecast-temp" data-weather-forecast-temp>--°C</span>
-                    </div>
-                    <div class="weather-card__forecast-day">
-                        <span class="weather-card__forecast-label" data-weather-forecast-day>---</span>
-                        <span class="weather-card__forecast-temp" data-weather-forecast-temp>--°C</span>
-                    </div>
-                    <div class="weather-card__forecast-day">
-                        <span class="weather-card__forecast-label" data-weather-forecast-day>---</span>
-                        <span class="weather-card__forecast-temp" data-weather-forecast-temp>--°C</span>
-                    </div>
-                </div>
-                <div class="weather-card__status" data-weather-status>Loading weather...</div>
-            </div>
-        </article>
-
-        <!-- Clock Card -->
-        <article class="card card--wide card--clock" aria-label="Clock card - Urbana-Champaign time">
-            <div class="card__header">
-                <span class="card__icon">🕐</span>
-                <h2 class="card__title">Clock (Urbana-Champaign)</h2>
-            </div>
-            <div class="card__body">
-                <div class="clock-display" data-clock="urbana">00:00:00</div>
-            </div>
-        </article>
-
-
-
-        <!-- Contact Card -->
-        <article class="card card--contact" aria-label="Contact information">
-            <div class="card__header">
-                <h2 class="card__title">Contact</h2>
-            </div>
-            <div class="card__body">
-                <div class="card__content">
-                    <p><a href="mailto:hello@terencemahlatini.com">email</a></p>
-                    <p><a href="https://www.linkedin.com/in/terence-mahlatini/" target="_blank" rel="noopener noreferrer">linkedIn</a></p>
-                </div>
-            </div>
-        </article>
-
-        <!-- filler card -->
-        <article class="card card--filler">
-        </article>
-
-
-        <!-- Writing Card -->
-        <article class="card card--extra-wide card--writing">
-            <div class="card__header">
-                <h2 class="card__title">
-                    {{ (now_card.title if now_card else "What I'm up to") }}
-                </h2>
-            </div>
-            <div class="card__body">
-                <div class="card__content">
-                    {% if now_card %}
-                        {{ now_card.content | safe }}
-                    {% endif %}
-                </div>
-            </div>
-        </article>
-
-
-</div>
-</div>
+<article>
+    <h1>{{ now_card.title if now_card else "What I'm up to" }}</h1>
+    <div class="content">
+        {% if now_card %}
+            {{ now_card.content | safe }}
+        {% endif %}
+    </div>
+</article>
 {% endblock %}
 

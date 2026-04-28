@@ -422,8 +422,12 @@ footer .separator {
 
 /* Dark Mode Toggle Text */
 .theme-toggle {
+    background: none;
+    border: 0;
     color: var(--color-text-secondary);
     font-size: var(--font-size-base);
+    font: inherit;
+    padding: 0;
     cursor: pointer;
     transition: color var(--transition-fast);
     display: inline;

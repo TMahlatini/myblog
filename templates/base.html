@@ -13,13 +13,12 @@
         })();
     </script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/cards.css') }}">
     {% block extra_head %}{% endblock %}
 </head>
 <body class="{% block body_class %}{% endblock %}">
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <header>
-        <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+        <button type="button" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
             <span class="menu-toggle__bar"></span>
             <span class="menu-toggle__bar"></span>
             <span class="menu-toggle__bar"></span>
@@ -37,10 +36,10 @@
 
     <footer>
         {% block footer_content %}
-        <span class="theme-toggle" role="button" tabindex="0" aria-label="Switch to dark mode">
+        <button type="button" class="theme-toggle" aria-label="Switch to dark mode">
             <span class="theme-toggle__text theme-toggle__text--light">Light Mode</span>
             <span class="theme-toggle__text theme-toggle__text--dark">Dark Mode</span>
-        </span>
+        </button>
         {% endblock %}
     </footer>
     <script src="{{ url_for('static', filename='js/darkmode.js') }}"></script>
