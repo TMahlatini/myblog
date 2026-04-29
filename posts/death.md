@@ -12,5 +12,5 @@ I used to think I was simply afraid of the finality of death—the inescapable e
 
 Truly appreciating that tomorrow is not guaranteed is a massive feat. I respect and envy those who have reached that summit. My wish is to reach it, too. I want to be able to look at death and smile, rather than shrinking at the thought of unfulfilled dreams. I want it to be an honest smile—the smile of someone who appreciated the gift of life and tried his best never to take it for granted.
 
-**A parting quote:** 
+
 
