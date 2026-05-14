@@ -57,7 +57,7 @@ When we were children, we wondered about everything; the simplest things could f
 
 Technology is a double-edged sword, with one side significantly sharper than the other. We cannot afford to be too comfortable in our apathy; if we are, we may wake up one day to discover we have traded our humanity for convenience. Or, through our ingratitude toward the innovators and their complex systems, we might find we have burned them on the stake like witches. 
  
-Of course, those are extreme cases that usually only happen in dystopian worlds. Still, it’s an interesting irony: the more I learn to appreciate the complexity upon which modern infrastructure is built, the more I want to live on some remote farm in the mountains, completely disconnected from it all.
+The irony in this reflection is the more I learn to appreciate the complexity upon which modern infrastructure is built, the more I want to live on some remote farm in the mountains, completely disconnected from it all. 
  
 **A parting quote:**
 

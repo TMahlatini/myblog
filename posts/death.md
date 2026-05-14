@@ -1,7 +1,7 @@
 ---
 title: Death
 published: 2026-01-04
-modified: 2026-01-23
+modified: 2026-04-28
 ---
 
 I have been thinking about death a lot lately. Usually, the thoughts are sporadic, triggered by tragic events around the world or close to home. In the past, I was careful not to let my mind wander too far; I was afraid I would scare myself into hiding. Being constantly conscious of your mortality is a heavy load to carry, but lately, I’ve decided I would like to carry it.

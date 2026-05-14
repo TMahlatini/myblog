@@ -1,14 +1,14 @@
 ---
 title: Hello World
 published: 2025-12-29
-modified: 2026-02-12
+modified: 2026-04-28
 ---
 
 Essentially, this site is a digital notebook. I use this space to explore anything I find interesting or worth reflecting on. You can find my writings on the [blog page](/blog/), and the now page is short summary of what I am currently focused on. The now page is inspired by Derek Sivers' [now page movement](https://nownownow.com/about). 
 
 **Why I am writing here?** 
 
-I have chosen to host these thoughts on the open web partly as a rebellion against the social media format, and it just feels good having some real estate on the internet. 
+I have chosen to host these thoughts on the open web partly as a rebellion against the social media format, and partly because it just feels good having some real estate on the internet. 
 
 **A parting quote:**
 
