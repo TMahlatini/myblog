@@ -61,4 +61,4 @@ The irony in this reflection is the more I learn to appreciate the complexity up
  
 **A parting quote:**
 
-*“Any sufficiently advanced technology is indistinguishable from magic.” — Arthur C. Clarke, Profiles of the Future*
+```“Any sufficiently advanced technology is indistinguishable from magic.” — Arthur C. Clarke, Profiles of the Future```

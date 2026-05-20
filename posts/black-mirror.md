@@ -13,5 +13,7 @@ One of my hobbies is engaging friends, family and strangers on a variety of subj
 
 Technology is evolving faster than we can adapt. If we don’t become conscious of the fact we will be in trouble, and in many ways, we already are. Think about it honestly: when was the last time you sat in silence with no devices, just you and your thoughts? The urge to scroll and consume media is evolving into something primal. We can hardly resist pulling out our phones at the slightest tinge of awkwardness or inconvenience when we are around people. Worse still, even without people around, noticing our own presence when the movie plot gets a little weak is too much so we scroll until the next exciting thing happens. 
 
-***A parting quote:*** ``` “For, after all, how do we know that two and two make four? Or that the force of gravity works? Or that the past is unchangeable? If both the past and the external world exist only in the mind, and if the mind itself is controllable – what then?” ― George Orwell, 1984
+***A parting quote:*** 
+
+``` “For, after all, how do we know that two and two make four? Or that the force of gravity works? Or that the past is unchangeable? If both the past and the external world exist only in the mind, and if the mind itself is controllable – what then?” ― George Orwell, 1984
 ```

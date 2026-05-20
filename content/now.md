@@ -3,5 +3,7 @@ title: What I'm up to
 modified: 2026-01-25
 ---
 
-- Reaally really trying to get into the habit of writing often. 
-- Learning more about ML compilers for a work project 
+This page is inspired by Derek Sivers' [now page movement](https://nownownow.com/about). 
+
+- Learning a lot about MLIR for a work project 
+- finishing up Crime and Punishement
