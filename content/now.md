@@ -23,7 +23,7 @@ I have added The Brothers Karamazov and The Idiot to my reading list and hopeful
 There is a lot happening in this space and much can be said but the most painful thing to witness, for me, is the subversion of our cultural values into something undignified and unholy. When we were kids we were told education was the key to success; the reality today can be surmised as such: **How good are you at bootlicking?** Even the church, the vanguard of good morals and everything holy, is going to the highest bidder. *Thirty pieces of silver… It seems everyone has a price, some things should, however, be priceless.* 
 
 ***A parting quote:***
-```“Honoured sir, poverty is not a vice, that's a true saying. Yet I know too that drunkenness is not a virtue, and that's even truer. But beggary, honoured sir, beggary is a vice. In poverty you may still retain your innate nobility of soul, but in beggary--never--no one. For beggary a man is not chased out of human society with a stick, he is swept out with a broom, so as to make it as humiliating as possible; and quite right, too, forasmuch as in beggary as I am ready to be the first to humiliate myself.”``` ― Fyodor Dostoevsky, Crime and Punishment
+*“Honoured sir, poverty is not a vice, that's a true saying. Yet I know too that drunkenness is not a virtue, and that's even truer. <strong>But beggary, honoured sir, beggary is a vice.</strong> In poverty you may still retain your innate nobility of soul, but in beggary--never--no one. For beggary a man is not chased out of human society with a stick, he is swept out with a broom, so as to make it as humiliating as possible; and quite right, too, forasmuch as in beggary as I am ready to be the first to humiliate myself.”* ― Fyodor Dostoevsky, Crime and Punishment
 
 
 
