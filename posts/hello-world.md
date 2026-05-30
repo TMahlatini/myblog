@@ -1,12 +1,12 @@
 ---
 title: Hello World
 published: 2025-12-29
-modified: 2026-04-28
+modified: 2026-05-29
 ---
 
 **Why I am writing here?** 
 
-I have chosen to host these thoughts on the open web partly as a rebellion against the social media format, and partly because it just feels good having some real estate on the internet. 
+I have chosen to host these thoughts on the open web partly as a rebellion to the social media format, and partly because it just feels good having some real estate on the internet. 
 
 **A parting quote:**
 

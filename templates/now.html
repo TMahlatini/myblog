@@ -9,7 +9,7 @@
 
 {% block content %}
 <article>
-    <h1>{{ now_card.title if now_card else "What I'm up to" }}</h1>
+    <h1>{{ now_card.title if now_card else "What I'm thinking about" }}</h1>
     <div class="content">
         {% if now_card %}
             {{ now_card.content | safe }}
