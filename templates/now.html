@@ -10,6 +10,11 @@
 {% block content %}
 <article>
     <h1>{{ now_card.title if now_card else "What I'm thinking about" }}</h1>
+    {% if now_card.modified %}
+    <div class="meta">
+        <time class="date" datetime="{{ now_card.modified.strftime('%Y-%m-%d') }}">Last updated: {{ now_card.modified.strftime('%d/%m/%Y') }}</time>
+    </div>
+    {% endif %}
     <div class="content">
         {% if now_card %}
             {{ now_card.content | safe }}
