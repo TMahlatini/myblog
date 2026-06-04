@@ -28,12 +28,11 @@
 {% block footer_content %}
 <a href="{{ url_for('blog') }}">All posts</a>
 <span class="separator"> | </span>
-<span class="theme-toggle" role="button" tabindex="0" aria-label="Switch to dark mode">
+<button type="button" class="theme-toggle" aria-label="Switch to dark mode">
     <span class="theme-toggle__text theme-toggle__text--light">Light Mode</span>
     <span class="theme-toggle__text theme-toggle__text--dark">Dark Mode</span>
-</span>
+</button>
 <span class="separator"> | </span>
 <a href="mailto:hello@terencemahlatini.com?subject=Re: {{ post.title | urlencode }}">Reply via email</a>
-<script src="{{ url_for('static', filename='js/lightbox.js') }}"></script>
 {% endblock %}
 
