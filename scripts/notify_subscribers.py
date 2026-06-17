@@ -48,8 +48,11 @@ def extract_title(filepath, fallback):
 def send_email(api_key, subject, body):
     response = requests.post(
         BUTTONDOWN_API_URL,
-        headers={"Authorization": f"Token {api_key}"},
-        json={"subject": subject, "body": body, "status": "sent"},
+        headers={
+            "Authorization": f"Token {api_key}",
+            "X-Buttondown-Live-Dangerously": "true",
+        },
+        json={"subject": subject, "body": body, "status": "about_to_send"},
         timeout=15,
     )
     response.raise_for_status()
