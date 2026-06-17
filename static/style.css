@@ -290,6 +290,88 @@ ul.posts a:hover {
     margin-top: var(--spacing-xl);
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.newsletter-signup {
+    margin-top: 4rem;
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-border);
+}
+
+.newsletter-signup h2 {
+    margin-top: 0;
+}
+
+.newsletter-signup__fields {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.newsletter-signup__fields input[type="email"] {
+    flex: 1;
+    min-width: 0;
+    padding: 0.5rem 0.75rem;
+    font: inherit;
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-medium);
+    border-radius: var(--radius-regular);
+}
+
+.newsletter-signup__fields input[type="email"]:focus {
+    outline: 2px solid var(--color-text-primary);
+    outline-offset: 2px;
+}
+
+.newsletter-signup__fields input[type="submit"] {
+    padding: 0.5rem 1rem;
+    font: inherit;
+    font-size: var(--font-size-base);
+    color: var(--color-bg-primary);
+    background: var(--color-text-primary);
+    border: none;
+    border-radius: var(--radius-regular);
+    cursor: pointer;
+    transition: opacity var(--transition-fast);
+}
+
+.newsletter-signup__fields input[type="submit"]:hover {
+    opacity: 0.85;
+}
+
+.newsletter-signup__attribution {
+    margin-bottom: 0;
+    font-size: var(--font-size-small);
+    color: var(--color-text-tertiary);
+}
+
+.newsletter-signup__attribution a {
+    color: var(--color-text-tertiary);
+    text-decoration: none;
+}
+
+.newsletter-signup__attribution a:hover {
+    color: var(--color-text-secondary);
+}
+
+@media (max-width: 600px) {
+    .newsletter-signup__fields {
+        flex-direction: column;
+    }
+}
+
 .profile-image {
     max-width: 50%;
     width: 50%;
