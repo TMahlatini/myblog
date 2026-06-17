@@ -19,6 +19,9 @@
     </div>
     {% endif %}
     <div class="content">
+        This page serves as a snapshot of ideas, questions and curiosities currently orbiting my mental space.
+         Some ideas will develop into essays and others will remain just that, snapshots. 
+         Check out the <a href="https://nownownow.com/about">now movement</a>, the inspiration for this page. 
         {% if now_card %}
             {{ now_card.content | safe }}
         {% endif %}
@@ -40,4 +43,15 @@
     </ul>
 </section>
 {% endif %}
+{% endblock %}
+
+{% block footer_content %}
+<a href="{{ url_for('blog') }}">All posts</a>
+<span class="separator"> | </span>
+<button type="button" class="theme-toggle" aria-label="Switch to dark mode">
+    <span class="theme-toggle__text theme-toggle__text--light">Light Mode</span>
+    <span class="theme-toggle__text theme-toggle__text--dark">Dark Mode</span>
+</button>
+<span class="separator"> | </span>
+<a href="mailto:hello@terencemahlatini.com?subject=Re: {{ now_card.title | urlencode }}">Reply via email</a>
 {% endblock %}
