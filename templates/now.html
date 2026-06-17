@@ -3,16 +3,19 @@
 
 {% block title %}Now{% endblock %}
 
-{% block description %}What Terence Mahlatini is currently focused on.{% endblock %}
+{% block description %}What Terence Mahlatini is currently thinking about.{% endblock %}
 
 {% block body_class %}now-page{% endblock %}
 
 {% block content %}
+{% if is_archive %}
+<p class="now-archive-nav"><a href="{{ url_for('now') }}">Current now page</a></p>
+{% endif %}
 <article>
     <h1>{{ now_card.title if now_card else "What I'm thinking about" }}</h1>
-    {% if now_card.modified %}
+    {% if now_card and now_card.date %}
     <div class="meta">
-        <time class="date" datetime="{{ now_card.modified.strftime('%Y-%m-%d') }}">Last updated: {{ now_card.modified.strftime('%d/%m/%Y') }}</time>
+        <time class="date" datetime="{{ now_card.date.strftime('%Y-%m-%d') }}">Last updated: {{ now_card.date.strftime('%d/%m/%Y') }}</time>
     </div>
     {% endif %}
     <div class="content">
@@ -23,3 +26,18 @@
 </article>
 {% endblock %}
 
+{% block after_content %}
+{% if archives %}
+<section class="now-archive">
+    <h4>Archives</h4>
+    <ul class="posts posts-by-year">
+        {% for page in archives %}
+        <li class="{% if not loop.last %}post-item{% else %}post-item post-item-last-in-year{% endif %}">
+            <time class="date" datetime="{{ page.date.strftime('%Y-%m-%d') }}">{{ page.date.strftime('%d/%m/%Y') }}</time>
+            <a href="{{ url_for('now_archive', date=page.date.strftime('%Y-%m-%d')) }}">{{ page.date.strftime('%d %B %Y') }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+{% endblock %}

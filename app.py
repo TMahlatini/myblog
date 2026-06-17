@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, redirect, render_template, request, url_for
 import os
 import markdown
 from datetime import datetime
@@ -8,6 +8,8 @@ app = Flask(__name__)
 
 POSTS_DIR = 'posts'
 CONTENT_DIR = 'content'
+NOW_DIR = os.path.join(CONTENT_DIR, 'now')
+NOW_DATE_PATTERN = re.compile(r'^\d{4}-\d{2}-\d{2}$')
 SITE_TITLE = "Terence Mahlatini"
 
 
@@ -116,6 +118,57 @@ def get_posts():
     return posts
 
 
+def load_now_page(date_slug):
+    """Load and parse a single now page snapshot."""
+    if not NOW_DATE_PATTERN.match(date_slug):
+        return None
+
+    filepath = os.path.join(NOW_DIR, f'{date_slug}.md')
+    page = load_markdown_file(filepath, date_slug)
+
+    if not page:
+        return None
+
+    try:
+        page_date = datetime.strptime(date_slug, '%Y-%m-%d')
+    except ValueError:
+        return None
+
+    return {
+        'date': page_date,
+        **page,
+        'modified': page_date,
+    }
+
+
+def get_now_pages():
+    """Get all now page snapshots sorted by date descending."""
+    pages = []
+
+    if not os.path.exists(NOW_DIR):
+        return pages
+
+    try:
+        filenames = os.listdir(NOW_DIR)
+    except (IOError, OSError):
+        return pages
+
+    for filename in filenames:
+        if not filename.endswith('.md'):
+            continue
+
+        date_slug = filename.replace('.md', '')
+        if not NOW_DATE_PATTERN.match(date_slug):
+            continue
+
+        page = load_now_page(date_slug)
+        if page:
+            pages.append(page)
+
+    pages.sort(key=lambda x: x['date'], reverse=True)
+    return pages
+
+
 @app.context_processor
 def inject_now():
     """Make current date/time available to all templates"""
@@ -137,9 +190,35 @@ def index():
 
 @app.route('/now/')
 def now():
-    now_content_path = os.path.join(CONTENT_DIR, 'now.md')
-    now_card = load_markdown_file(now_content_path, 'now')
-    return render_template('now.html', now_card=now_card)
+    pages = get_now_pages()
+    latest = pages[0] if pages else None
+    archives = pages[1:]
+    return render_template('now.html', now_card=latest, archives=archives)
+
+
+@app.route('/now/<date>/')
+def now_archive(date):
+    if not NOW_DATE_PATTERN.match(date):
+        return "Invalid date", 400
+
+    pages = get_now_pages()
+    if not pages:
+        return "Not found", 404
+
+    if pages[0]['date'].strftime('%Y-%m-%d') == date:
+        return redirect(url_for('now'))
+
+    now_card = load_now_page(date)
+    if not now_card:
+        return "Not found", 404
+
+    archives = [p for p in pages[1:] if p['date'] != now_card['date']]
+    return render_template(
+        'now.html',
+        now_card=now_card,
+        archives=archives,
+        is_archive=True,
+    )
 
 @app.route('/blog/')
 def blog():

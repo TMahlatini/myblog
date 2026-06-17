@@ -1,5 +1,5 @@
 from flask_frozen import Freezer
-from app import app, get_posts
+from app import app, get_posts, get_now_pages
 import os
 import sys
 
@@ -18,6 +18,12 @@ freezer = Freezer(app)
 def post():
     for post in get_posts():
         yield {'slug': post['slug']}
+
+@freezer.register_generator
+def now_archive():
+    pages = get_now_pages()
+    for page in pages[1:]:
+        yield {'date': page['date'].strftime('%Y-%m-%d')}
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'serve':

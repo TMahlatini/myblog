@@ -397,6 +397,26 @@ article .content a:hover {
     color: var(--color-text-hover);
 }
 
+.now-archive {
+    margin-top: 4rem;
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-border);
+}
+
+.now-archive ul.posts.posts-by-year {
+    margin-bottom: 0;
+}
+
+.now-archive ul.posts.posts-by-year li.post-item-last-in-year {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 1rem;
+}
+
+.now-archive + footer {
+    margin-top: 0;
+}
+
 footer {
     margin-top: 4rem;
     padding-top: var(--spacing-md);
