@@ -185,7 +185,8 @@ def inject_current_path():
 def index():
     index_content_path = os.path.join(CONTENT_DIR, 'index.md')
     index_card = load_markdown_file(index_content_path, 'index')
-    return render_template('index.html', index_card=index_card)
+    recent_posts = get_posts()[:2]
+    return render_template('index.html', index_card=index_card, recent_posts=recent_posts)
 
 
 @app.route('/now/')
