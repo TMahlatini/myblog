@@ -124,7 +124,7 @@ def main():
 
     for date_slug in new_now_pages:
         subject = f"Now page updated: {date_slug}"
-        body = f"A new now page entry ({date_slug}) is live.\n\nRead it here: {site_url}/now/{date_slug}/"
+        body = f"A new now page entry ({date_slug}) is live.\n\nRead it here: {site_url}/now/"
         try:
             send_email(api_key, subject, body)
             manifest.setdefault("now", []).append(date_slug)
