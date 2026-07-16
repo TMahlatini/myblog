@@ -400,6 +400,13 @@ ul.posts a:hover {
     font-size: var(--font-size-small);
 }
 
+.now-preface {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-small);
+    font-style: italic;
+    margin-bottom: var(--spacing-xl);
+}
+
 .meta .separator {
    
     padding-left: 0em;

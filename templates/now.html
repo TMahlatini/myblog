@@ -19,9 +19,11 @@
     </div>
     {% endif %}
     <div class="content">
-        This page serves as a snapshot of ideas, questions and curiosities currently orbiting my mental space.
-         Some ideas will develop into essays and others will remain just that, snapshots. 
-         Check out the <a href="https://nownownow.com/about">now movement</a>, the inspiration for this page. 
+        <p class="now-preface">
+            This page serves as a snapshot of ideas, questions and curiosities currently orbiting my mental space.
+            Some ideas will develop into essays and others will remain just that, snapshots.
+            Check out the <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer">now movement</a>, the inspiration for this page.
+        </p>
         {% if now_card %}
             {{ now_card.content | safe }}
         {% endif %}

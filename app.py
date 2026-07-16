@@ -2,6 +2,9 @@ from flask import Flask, redirect, render_template, request, url_for
 import os
 import markdown
 from datetime import datetime
+from markdown.extensions import Extension
+from markdown.treeprocessors import Treeprocessor
+from urllib.parse import urlparse
 import re
 
 app = Flask(__name__)
@@ -11,6 +14,28 @@ CONTENT_DIR = 'content'
 NOW_DIR = os.path.join(CONTENT_DIR, 'now')
 NOW_DATE_PATTERN = re.compile(r'^\d{4}-\d{2}-\d{2}$')
 SITE_TITLE = "Terence Mahlatini"
+SITE_HOSTS = frozenset({'terencemahlatini.com', 'www.terencemahlatini.com'})
+
+
+class ExternalLinkTreeprocessor(Treeprocessor):
+    """Open off-site links in a new tab."""
+
+    def run(self, root):
+        for element in root.iter('a'):
+            href = element.get('href', '')
+            if not href.startswith(('http://', 'https://')):
+                continue
+            host = (urlparse(href).hostname or '').lower()
+            if host in SITE_HOSTS:
+                continue
+            element.set('target', '_blank')
+            element.set('rel', 'noopener noreferrer')
+        return root
+
+
+class ExternalLinkExtension(Extension):
+    def extendMarkdown(self, md):
+        md.treeprocessors.register(ExternalLinkTreeprocessor(md), 'externallink', 15)
 
 
 def parse_frontmatter(content, slug):
@@ -73,7 +98,7 @@ def load_markdown_file(filepath, slug):
         'modified': metadata['modified'],
         'content': markdown.markdown(
             metadata['body'],
-            extensions=['fenced_code', 'pymdownx.tilde']
+            extensions=['fenced_code', 'pymdownx.tilde', ExternalLinkExtension()]
         )
     }
 
