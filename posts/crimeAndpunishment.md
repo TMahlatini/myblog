@@ -1,6 +1,7 @@
 ---
 title: Crime and Punishment 
 published: 2026-06-29
+modified: 2026-07-16
 ---
 
 It's been a couple weeks since I put down Crime and Punishment by Fyodor Dostoevsky. I have been meaning to write more about what I got from the book but it’s hard to unpack it all; some of the ideas are still taking shape. There are a lot of avenues for analysis and someday I will explore them all because I will most certainly be reading it again. For now, these are the main ideas that I have gained from the book: 
@@ -11,7 +12,7 @@ It's been a couple weeks since I put down Crime and Punishment by Fyodor Dostoev
 
 When Raskolnikov (the protagonist) was trying to justify murdering the old woman, he tried to identify everything that was wrong with her: abusive, greedy, and harmful to the poor. He veiled his own malice and selfish interests behind his contempt of the old woman’s moral failings. Righteous indignation, if you will, and if not checked, a good excuse to forever locate ‘evil’ in the ‘other’ and never in ourselves. 
 
-An example of ignorance towards the malice in our own hearts is when we look at history. Sometimes it’s almost laughable how some people think that, with certainty, they could have been more ‘virtuous’ than their ancestors in any given time period. Everyone thinks they would be the ones freeing the slaves; neither buyer nor seller, not even the bystander! Or one of the good guys in Nazi Germany. The bias of hindsight can veil our own malice too. 
+An example of ignorance towards the malice in our own hearts is when we look at history. I think it’s unfortunate how some people, *with certainty*, think they could have been more ‘virtuous’ than their ancestors in any given time period. Everyone thinks they would be the ones freeing the slaves; neither buyer nor seller, not even the bystander! Or one of the good guys in Nazi Germany. The bias of hindsight can veil our own malice too. 
 
 **Life is full of suffering. It's a truism that sometimes lacks appreciation when life is going smoothly.** 
 
