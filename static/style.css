@@ -99,7 +99,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     line-height: 1.7;
     color: var(--color-text-primary);
-    max-width: 650px;
+    max-width: 800px;
     margin: 0 auto;
     padding: var(--spacing-xl);
     background: var(--color-bg-primary);
@@ -113,7 +113,9 @@ main {
 }
 
 header {
-    margin-bottom: var(--spacing-xl);
+    max-width: 560px;
+    width: 100%;
+    margin: 0 auto var(--spacing-xl);
     padding-bottom: var(--spacing-md);
     position: relative;
 }
@@ -217,6 +219,13 @@ h3 {
 
 h3 + ul.posts.posts-by-year {
     margin-top: var(--spacing-xs);
+}
+
+.posts-archive {
+    max-width: 560px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 p {
@@ -507,7 +516,9 @@ article .content a:hover {
 }
 
 footer {
-    margin-top: 4rem;
+    max-width: 560px;
+    width: 100%;
+    margin: 4rem auto 0;
     padding-top: var(--spacing-md);
     font-size: var(--font-size-base);
     text-align: center;
