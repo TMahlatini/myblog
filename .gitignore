@@ -8,3 +8,4 @@ build/
 DEPLOYMENT.md
 __pycache__/
 archives/*
+prompts/*

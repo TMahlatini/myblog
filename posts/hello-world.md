@@ -1,10 +1,8 @@
 ---
 title: Hello World
 published: 2025-12-29
-modified: 2026-06-18
+modified: 2026-07-18
 ---
-
-If you find anything on this website interesting and would like to chat about it, feel free to email me at: hello@terencemahlatini.com
 
 ### Background ###
 
@@ -16,11 +14,23 @@ My mother is [Ndebele](https://en.wikipedia.org/wiki/Northern_Ndebele_people) an
 
 Speaking of my secondary school, it was a mission boarding school roughly 45 mins away from my hometown. There were rules against going home without a legitimate reason; I found one every term. Among other things, my secondary school experience was a bit unique, I was a prefect for 3/4 years. In my second year of tenure, I wanted to quit because I thought I was being robbed of a normal school experience but one of the senior teachers talked me out of it and concluded the matter by telling me that I didn’t have a choice. 
 
-For high school, I got a scholarship at an international school in India [(MUWCI)](https://www.uwcmahindracollege.org/#). Being the only Zimbabwean on campus had interesting consequences, beyond answering a few questions about Robert Mugabe and our ephemeral trillion dollar economy, I gained awareness of my national identity but still struggle to define it. The school setup was interesting, half the school was run by students and sometimes it felt like the academic work itself was an extra-curricular activity. There was a grand sense of responsibility imposed by the idealism of the school; I was almost convinced that 16 –18 year olds could change and run the world. 
+For high school, I got a scholarship at an international school in India [(MUWCI)](https://www.uwcmahindracollege.org/#). Being the only Zimbabwean on campus had interesting consequences. Beyond answering a few questions about Robert Mugabe, and our ephemeral trillion dollar economy, I gained awareness of my national identity but still struggle to define it. The school setup was also interesting, half the school was run by students and sometimes it felt like the academic work itself was an extra-curricular activity. There was a grand sense of responsibility imposed by the idealism of the school; I was almost convinced that 16 –18 year olds could change and run the world. 
 
-The next step in my education was Whitman College, USA. In my first semester, my dream of becoming a doctor went into a coma, and I became a CS major the following semester. CS provided a closed learning loop that scratched an itch the natural sciences couldn’t: the theoretical foundations were relatively easy for me to grasp because I could build and break till something worked. 
+The next step in my education was Whitman College, USA. In my first semester, my dream of becoming a doctor went into a coma, and I became a CS major the following semester. CS provided a closed learning loop that scratched an itch the natural sciences couldn’t: the theoretical foundations could be modelled more easily, and I could build, and break till something worked. 
 
-Currently, I work at [Multicoreware](https://multicorewareinc.com/), a company which mainly focuses on low-level systems programming. This blog will, however, try and stay clear of my work because Lord knows I already spend too much time on it. 
+Currently, I work at [Multicoreware](https://multicorewareinc.com/), a company which mainly focuses on low-level systems programming. 
+
+### Why write here? ###
+
+I have found writing to be worthwhile, and I wish I had started writing earlier. As for publishing in the public domain, well, I think you can infer from the Dostoevsky quote below.
+
+### Target Audience ###
+
+Everything I write here is primarily for my present and future self. In the present, writing helps refine my thoughts, and ideas, and it will be the reason I am more articulate in the future. 
+
+The secondary audience is my family and friends. Sometimes I will write technical stuff about my work and for those posts, my assumption for prior knowledge is based on my dad's awareness of the topic. 
+
+For the stranger whose stumbled upon this site: I hope you find something that interests you. To all: feel free to send in any comments based on what you have found or wish had found (interesting or otherwise). You can email me: hello@terencemahlatini.com
 
 
 **A parting quote:**
