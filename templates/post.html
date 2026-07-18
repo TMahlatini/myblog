@@ -23,7 +23,11 @@
         {{ post.content|safe }}
     </div>
 </article>
+{% if post.slug == 'hello-world' %}
+{% include '_newsletter.html' %}
+{% endif %}
 {% endblock %}
+
 
 {% block footer_content %}
 <a href="{{ url_for('blog') }}">All posts</a>

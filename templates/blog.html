@@ -9,7 +9,7 @@
 {% if posts_by_year %}
 {% for year in sorted_years %}
 
-<section>
+<section class="posts-archive">
     <h3>{{ year }}</h3>
     <ul class="posts posts-by-year">
         {% for post in posts_by_year[year] %}
