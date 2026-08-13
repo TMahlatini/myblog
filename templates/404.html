@@ -1,53 +1,14 @@
 <!-- htmlhint doctype-first:false -->
 {% extends "base.html" %}
 
-{% block title %}404 - Page Not Found{% endblock %}
+{% block title %}404 — Page Not Found{% endblock %}
 
 {% block description %}The page you're looking for doesn't exist.{% endblock %}
 
-{% block extra_head %}
-<style>
-.not-found-page {
-    text-align: center;
-    padding: 60px 20px;
-}
-.not-found-page__code {
-    font-size: 120px;
-    margin: 0;
-    color: #333;
-}
-.not-found-page__title {
-    font-size: 32px;
-    margin: 20px 0;
-    color: #666;
-}
-.not-found-page__message {
-    font-size: 18px;
-    margin: 20px 0;
-    color: #888;
-}
-.not-found-page__link {
-    display: inline-block;
-    margin-top: 40px;
-    padding: 12px 24px;
-    background: #333;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-}
-</style>
-{% endblock %}
-
 {% block content %}
 <div class="not-found-page">
-    <h1 class="not-found-page__code">404</h1>
-    <h2 class="not-found-page__title">Page Not Found</h2>
-    <p class="not-found-page__message">
-        Sorry, the page you're looking for doesn't exist or has been moved.
-    </p>
-    <p>
-        <a class="not-found-page__link" href="{{ url_for('index') }}">Go Home</a>
-    </p>
+    <h1>404</h1>
+    <p>This page does not exist, or it has been moved.</p>
+    <p><a href="{{ url_for('index') }}">Home</a></p>
 </div>
 {% endblock %}
-

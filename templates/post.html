@@ -9,13 +9,20 @@
 
 {% block content %}
 <article>
+    {% if book %}
+    <p class="breadcrumb">
+        <a href="{{ url_for('entry', slug=book.slug) }}">{{ book.title }}</a>
+        <span class="breadcrumb__sep">/</span>
+        <span>{{ post.title }}</span>
+    </p>
+    {% endif %}
     <h1>{{ post.title }}</h1>
     {% if post.published %}
     <div class="meta">
-        <time class="date" datetime="{{ post.published.strftime('%Y-%m-%d') }}">Published: {{ post.published.strftime('%d/%m/%Y') }}</time>
+        <time datetime="{{ post.published.strftime('%Y-%m-%d') }}">Published: {{ post.published.strftime('%d/%m/%Y') }}</time>
         {% if post.modified %}
-        <span class="separator">•</span>
-        <time class="date modified" datetime="{{ post.modified.strftime('%Y-%m-%d') }}">Last modified: {{ post.modified.strftime('%d/%m/%Y') }}</time>
+        <span class="separator">·</span>
+        <time datetime="{{ post.modified.strftime('%Y-%m-%d') }}">Last modified: {{ post.modified.strftime('%d/%m/%Y') }}</time>
         {% endif %}
     </div>
     {% endif %}
@@ -23,20 +30,10 @@
         {{ post.content|safe }}
     </div>
 </article>
-{% if post.slug == 'hello-world' %}
-{% include '_newsletter.html' %}
-{% endif %}
 {% endblock %}
 
-
-{% block footer_content %}
-<a href="{{ url_for('blog') }}">All posts</a>
-<span class="separator"> | </span>
-<button type="button" class="theme-toggle" aria-label="Switch to dark mode">
-    <span class="theme-toggle__text theme-toggle__text--light">Light Mode</span>
-    <span class="theme-toggle__text theme-toggle__text--dark">Dark Mode</span>
-</button>
-<span class="separator"> | </span>
-<a href="mailto:hello@terencemahlatini.com?subject=Re: {{ post.title | urlencode }}">Reply via email</a>
+{% block footer %}
+<footer>
+    <a href="mailto:hello@terencemahlatini.com?subject=Re: {{ post.title | urlencode }}">Reply via email</a>
+</footer>
 {% endblock %}
-

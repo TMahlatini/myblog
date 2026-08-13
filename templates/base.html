@@ -4,32 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{% block description %}Terence Mahlatini's corner of the internet.{% endblock %}">
-    <title>{% block title %}Blog - Terence Mahlatini{% endblock %}</title>
+    <title>{% block title %}Terence Mahlatini{% endblock %}</title>
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
-    <script>
-        // Apply saved theme immediately to prevent flash
-        (function() {
-            const theme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', theme);
-        })();
-    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     {% block extra_head %}{% endblock %}
 </head>
 <body class="{% block body_class %}{% endblock %}">
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <header>
-        <button type="button" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
-            <span class="menu-toggle__bar"></span>
-            <span class="menu-toggle__bar"></span>
-            <span class="menu-toggle__bar"></span>
-        </button>
-        <nav id="main-navigation" class="header-menu" aria-label="Main navigation">
-            <a href="{{ url_for('index') }}" class="header-menu__item {% if current_path == url_for('index') %}header-menu__item--active{% endif %}" aria-current="{% if current_path == url_for('index') %}page{% else %}false{% endif %}">Home</a>
-            <a href="{{ url_for('blog') }}" class="header-menu__item {% if current_path == url_for('blog') %}header-menu__item--active{% endif %}" aria-current="{% if current_path == url_for('blog') %}page{% else %}false{% endif %}">Blog</a>
-            <a href="{{ url_for('now') }}" class="header-menu__item {% if current_path == url_for('now') %}header-menu__item--active{% endif %}" aria-current="{% if current_path == url_for('now') %}page{% else %}false{% endif %}">Now</a>
+        <a href="{{ url_for('index') }}" class="site-title">{{ site_title }}</a>
+        <nav aria-label="Main navigation">
+            <a href="{{ url_for('index') }}" class="{% if current_path == url_for('index') %}is-active{% endif %}" aria-current="{% if current_path == url_for('index') %}page{% else %}false{% endif %}">Home</a>
+            <a href="{{ url_for('about') }}" class="{% if current_path == url_for('about') %}is-active{% endif %}" aria-current="{% if current_path == url_for('about') %}page{% else %}false{% endif %}">About</a>
+            <a href="{{ url_for('now') }}" class="{% if current_path.startswith('/now/') %}is-active{% endif %}" aria-current="{% if current_path.startswith('/now/') %}page{% else %}false{% endif %}">Now</a>
         </nav>
     </header>
 
@@ -39,19 +31,9 @@
 
     {% block after_content %}{% endblock %}
 
-    <footer>
-        {% block footer_content %}
-        <button type="button" class="theme-toggle" aria-label="Switch to dark mode">
-            <span class="theme-toggle__text theme-toggle__text--light">Light Mode</span>
-            <span class="theme-toggle__text theme-toggle__text--dark">Dark Mode</span>
-        </button>
-        {% endblock %}
-    </footer>
-    <script src="{{ url_for('static', filename='js/darkmode.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/navigation.js') }}"></script>
+    {% block footer %}{% endblock %}
     <!-- Goatcounter analytics -->
     <script data-goatcounter="https://mahlatini.goatcounter.com/count"
     async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
-

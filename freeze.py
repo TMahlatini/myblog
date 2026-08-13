@@ -1,5 +1,5 @@
 from flask_frozen import Freezer
-from app import app, get_posts, get_now_pages
+from app import app, get_posts, get_now_pages, get_books
 import os
 import sys
 
@@ -14,10 +14,22 @@ app.config['FREEZER_IGNORE_404_NOT_FOUND'] = True
 
 freezer = Freezer(app)
 
+
 @freezer.register_generator
-def post():
+def entry():
+    for book in get_books():
+        yield {'slug': book['slug']}
     for post in get_posts():
-        yield {'slug': post['slug']}
+        if not post.get('book'):
+            yield {'slug': post['slug']}
+
+
+@freezer.register_generator
+def book_essay():
+    for post in get_posts():
+        if post.get('book'):
+            yield {'book_slug': post['book'], 'essay_slug': post['slug']}
+
 
 @freezer.register_generator
 def now_archive():
@@ -25,16 +37,17 @@ def now_archive():
     for page in pages[1:]:
         yield {'date': page['date'].strftime('%Y-%m-%d')}
 
+
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'serve':
         # Serve the built site locally
         print("Serving static site from 'build' directory...")
-        freezer.run(debug=True )
+        freezer.run(debug=True)
     else:
         # Build the site
         print("Freezing the site...")
         freezer.freeze()
-        
+
         # Create .nojekyll file for GitHub Pages
         nojekyll_path = os.path.join(app.config.get('FREEZER_DESTINATION', 'build'), '.nojekyll')
         with open(nojekyll_path, 'w') as f:

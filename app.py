@@ -1,7 +1,8 @@
-from flask import Flask, redirect, render_template, request, url_for
+from flask import Flask, render_template, request, url_for
 import os
 import markdown
-from datetime import datetime
+import yaml
+from datetime import date, datetime
 from markdown.extensions import Extension
 from markdown.treeprocessors import Treeprocessor
 from urllib.parse import urlparse
@@ -10,9 +11,11 @@ import re
 app = Flask(__name__)
 
 POSTS_DIR = 'posts'
+BOOKS_FILE = 'books.yaml'
 CONTENT_DIR = 'content'
 NOW_DIR = os.path.join(CONTENT_DIR, 'now')
 NOW_DATE_PATTERN = re.compile(r'^\d{4}-\d{2}-\d{2}$')
+SLUG_PATTERN = re.compile(r'^[a-zA-Z0-9_-]+$')
 SITE_TITLE = "Terence Mahlatini"
 SITE_HOSTS = frozenset({'terencemahlatini.com', 'www.terencemahlatini.com'})
 
@@ -43,16 +46,30 @@ def parse_frontmatter(content, slug):
     title = slug.replace('-', ' ').title()
     published = None
     modified = None
+    book = None
+    reading = []
     body = content
-    
+
     if content.startswith('---'):
         parts = content.split('---', 2)
         if len(parts) >= 3:
             frontmatter = parts[1]
             body = parts[2]
-            
-            for line in frontmatter.split('\n'):
-                line = line.strip()
+            in_reading = False
+
+            for raw_line in frontmatter.split('\n'):
+                line = raw_line.strip()
+                if not line:
+                    continue
+
+                if in_reading:
+                    if line.startswith('- '):
+                        item = line[2:].strip().strip('"\'')
+                        if item:
+                            reading.append(item)
+                        continue
+                    in_reading = False
+
                 if line.startswith('title:'):
                     title = line.split(':', 1)[1].strip().strip('"\'')
                 elif line.startswith('published:'):
@@ -67,35 +84,44 @@ def parse_frontmatter(content, slug):
                         modified = datetime.strptime(date_str, '%Y-%m-%d')
                     except (ValueError, TypeError):
                         pass
-    
+                elif line.startswith('book:'):
+                    value = line.split(':', 1)[1].strip().strip('"\'')
+                    book = value or None
+                elif line.startswith('reading:'):
+                    in_reading = True
+
     return {
         'title': title,
         'published': published,
         'modified': modified,
+        'book': book,
+        'reading': reading,
         'body': body
     }
 
 
 def load_markdown_file(filepath, slug):
     """Load and parse a markdown file with optional frontmatter."""
-    if not re.match(r'^[a-zA-Z0-9_-]+$', slug):
+    if not SLUG_PATTERN.match(slug) and not NOW_DATE_PATTERN.match(slug):
         return None
-    
+
     if not os.path.exists(filepath):
         return None
-    
+
     try:
         with open(filepath, 'r', encoding='utf-8') as f:
             content = f.read()
     except (IOError, OSError):
         return None
-    
+
     metadata = parse_frontmatter(content, slug)
-    
+
     return {
         'title': metadata['title'],
         'published': metadata['published'],
         'modified': metadata['modified'],
+        'book': metadata['book'],
+        'reading': metadata['reading'],
         'content': markdown.markdown(
             metadata['body'],
             extensions=['fenced_code', 'pymdownx.tilde', ExternalLinkExtension()]
@@ -107,10 +133,10 @@ def load_post_from_file(slug):
     """Load and parse a single post file."""
     filepath = os.path.join(POSTS_DIR, f'{slug}.md')
     post = load_markdown_file(filepath, slug)
-    
+
     if not post:
         return None
-    
+
     return {
         'slug': slug,
         **post
@@ -120,27 +146,90 @@ def load_post_from_file(slug):
 def get_posts():
     """Get all posts sorted by published date."""
     posts = []
-    
+
     if not os.path.exists(POSTS_DIR):
         return posts
-    
+
     try:
         filenames = os.listdir(POSTS_DIR)
     except (IOError, OSError):
         return posts
-    
+
     for filename in filenames:
         if not filename.endswith('.md'):
             continue
-        
+
         slug = filename.replace('.md', '')
         post = load_post_from_file(slug)
-        
+
         if post:
             posts.append(post)
-    
+
     posts.sort(key=lambda x: x['published'] or datetime.min, reverse=True)
     return posts
+
+
+def parse_completed(value):
+    """Parse a YAML completed date into datetime, or None."""
+    if value is None:
+        return None
+    if isinstance(value, datetime):
+        return value
+    if isinstance(value, date):
+        return datetime(value.year, value.month, value.day)
+    if isinstance(value, str):
+        try:
+            return datetime.strptime(value, '%Y-%m-%d')
+        except ValueError:
+            return None
+    return None
+
+
+def load_book(slug):
+    """Load a single book catalog entry."""
+    if not SLUG_PATTERN.match(slug):
+        return None
+    for book in get_books():
+        if book['slug'] == slug:
+            return book
+    return None
+
+
+def get_books():
+    """Get all books in catalog order."""
+    books = []
+    if not os.path.exists(BOOKS_FILE):
+        return books
+    try:
+        with open(BOOKS_FILE, 'r', encoding='utf-8') as f:
+            catalog = yaml.safe_load(f) or {}
+    except (IOError, OSError, yaml.YAMLError):
+        return books
+    if not isinstance(catalog, dict):
+        return books
+    for slug, meta in catalog.items():
+        if not SLUG_PATTERN.match(str(slug)) or not isinstance(meta, dict):
+            continue
+        books.append({
+            'slug': slug,
+            'title': meta.get('title') or slug.replace('-', ' ').title(),
+            'author': meta.get('author') or '',
+            'completed': parse_completed(meta.get('completed')),
+        })
+    return books
+
+
+def attach_shelf(books, posts, reading_slugs):
+    """Attach essays and currently-reading state to book catalog entries."""
+    reading_set = set(reading_slugs)
+    for book in books:
+        book['essays'] = [p for p in posts if p.get('book') == book['slug']]
+        book['currently_reading'] = book['slug'] in reading_set
+    books_by_slug = {b['slug']: b for b in books}
+    for post in posts:
+        book = books_by_slug.get(post.get('book'))
+        post['book_title'] = book['title'] if book else None
+    return books
 
 
 def load_now_page(date_slug):
@@ -194,6 +283,26 @@ def get_now_pages():
     return pages
 
 
+def get_reading_slugs():
+    """Reading list from the living (latest) Now page."""
+    pages = get_now_pages()
+    if not pages:
+        return []
+    return pages[0].get('reading') or []
+
+
+def resolve_reading_books(slugs, books):
+    by_slug = {b['slug']: b for b in books}
+    return [by_slug[s] for s in slugs if s in by_slug]
+
+
+@app.template_global()
+def essay_url(post):
+    if post.get('book'):
+        return url_for('book_essay', book_slug=post['book'], essay_slug=post['slug'])
+    return url_for('entry', slug=post['slug'])
+
+
 @app.context_processor
 def inject_now():
     """Make current date/time available to all templates"""
@@ -203,15 +312,29 @@ def inject_now():
 @app.context_processor
 def inject_current_path():
     """Make current path available to all templates"""
-    return {'current_path': request.path}
+    return {'current_path': request.path, 'site_title': SITE_TITLE}
 
 
 @app.route('/')
 def index():
-    index_content_path = os.path.join(CONTENT_DIR, 'index.md')
-    index_card = load_markdown_file(index_content_path, 'index')
-    recent_posts = get_posts()[:2]
-    return render_template('index.html', index_card=index_card, recent_posts=recent_posts)
+    posts = get_posts()
+    books = get_books()
+    reading_slugs = get_reading_slugs()
+    attach_shelf(books, posts, reading_slugs)
+    completed_books = [b for b in books if not b['currently_reading']]
+    completed_books.sort(key=lambda b: b['completed'] or datetime.min, reverse=True)
+    return render_template(
+        'index.html',
+        books=completed_books,
+        recent_posts=posts[:5],
+    )
+
+
+@app.route('/about/')
+def about():
+    about_path = os.path.join(CONTENT_DIR, 'index.md')
+    about_card = load_markdown_file(about_path, 'index')
+    return render_template('about.html', about_card=about_card)
 
 
 @app.route('/now/')
@@ -219,7 +342,14 @@ def now():
     pages = get_now_pages()
     latest = pages[0] if pages else None
     archives = pages[1:]
-    return render_template('now.html', now_card=latest, archives=archives)
+    books = get_books()
+    reading_books = resolve_reading_books(latest.get('reading') or [], books) if latest else []
+    return render_template(
+        'now.html',
+        now_card=latest,
+        archives=archives,
+        reading_books=reading_books,
+    )
 
 
 @app.route('/now/<date>/')
@@ -232,6 +362,7 @@ def now_archive(date):
         return "Not found", 404
 
     if pages[0]['date'].strftime('%Y-%m-%d') == date:
+        from flask import redirect
         return redirect(url_for('now'))
 
     now_card = load_now_page(date)
@@ -244,50 +375,72 @@ def now_archive(date):
         now_card=now_card,
         archives=archives,
         is_archive=True,
+        reading_books=[],
     )
+
 
 @app.route('/blog/')
-def blog():
-    posts = get_posts()
-    # Group posts by year
-    posts_by_year = {}
-    for post in posts:
-        year = post['published'].year if post['published'] else 'Unknown'
-        if year not in posts_by_year:
-            posts_by_year[year] = []
-        posts_by_year[year].append(post)
-    
-    # Sort years: numeric years descending, then 'Unknown' at the end
-    sorted_years = sorted(
-        posts_by_year.keys(),
-        key=lambda x: (x == 'Unknown', -x if isinstance(x, int) else 0)
+def blog_redirect():
+    return render_template('redirect.html', url=url_for('index'))
+
+
+@app.route('/threebody/')
+def threebody_redirect():
+    return render_template(
+        'redirect.html',
+        url=url_for('book_essay', book_slug='three-body', essay_slug='ye-wenjie'),
     )
-    return render_template('blog.html', posts_by_year=posts_by_year, sorted_years=sorted_years)
+
+
+@app.route('/crimeAndpunishment/')
+def crime_and_punishment_redirect():
+    return render_template(
+        'redirect.html',
+        url=url_for('book_essay', book_slug='crime-and-punishment', essay_slug='main-ideas'),
+    )
+
+
+@app.route('/<book_slug>/<essay_slug>/')
+def book_essay(book_slug, essay_slug):
+    if not SLUG_PATTERN.match(book_slug) or not SLUG_PATTERN.match(essay_slug):
+        return "Invalid slug", 400
+
+    book = load_book(book_slug)
+    if not book:
+        return "Not found", 404
+
+    post = load_post_from_file(essay_slug)
+    if not post or post.get('book') != book_slug:
+        return "Not found", 404
+
+    post['book_title'] = book['title']
+    return render_template('post.html', post=post, book=book)
+
 
 @app.route('/<slug>/')
-def post(slug):
-    # Security: validate slug format
-    if not re.match(r'^[a-zA-Z0-9_-]+$', slug):
-        return "Invalid post slug", 400
-    
-    
-    post = load_post_from_file(slug)
-    
-    if not post:
-        # Fallback: search in all posts (in case file wasn't found but exists in cache)
-        posts = get_posts()
-        post = next((p for p in posts if p['slug'] == slug), None)
-    
-    if not post:
-        return "Post not found", 404
-    
-    return render_template('post.html', post=post)
+def entry(slug):
+    if not SLUG_PATTERN.match(slug):
+        return "Invalid slug", 400
 
-@app.route('/404/')
+    book = load_book(slug)
+    if book:
+        posts = get_posts()
+        reading_slugs = get_reading_slugs()
+        attach_shelf([book], posts, reading_slugs)
+        return render_template('book.html', book=book)
+
+    post = load_post_from_file(slug)
+    if post and not post.get('book'):
+        return render_template('post.html', post=post, book=None)
+
+    return "Not found", 404
+
+
+@app.route('/404.html')
 def page_not_found():
     """404 page for GitHub Pages"""
-    return render_template('404.html'), 404
+    return render_template('404.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5002)
-

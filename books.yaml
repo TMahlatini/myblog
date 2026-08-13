@@ -1,0 +1,22 @@
+three-body:
+  title: The Three-Body Problem
+  author: Liu Cixin
+  completed: 2026-05-18
+the-dark-forest:
+  title: The Dark Forest
+  author: Liu Cixin
+  completed: 2026-06-23
+deaths-end:
+  title: Death's End
+  author: Liu Cixin
+  completed: 2026-08-11
+crime-and-punishment:
+  title: Crime and Punishment
+  author: Fyodor Dostoevsky
+  completed: 2026-05-19
+thinking-fast-and-slow:
+  title: Thinking, Fast and Slow
+  author: Daniel Kahneman
+algorithms-to-live-by:
+  title: Algorithms to Live By
+  author: Brian Christian and Tom Griffiths

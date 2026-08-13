@@ -1,7 +1,8 @@
 ---
-title: Crime and Punishment 
+title: Raskolnikov
 published: 2026-06-29
 modified: 2026-07-16
+book: crime-and-punishment
 ---
 
 It's been a couple weeks since I put down Crime and Punishment by Fyodor Dostoevsky. I have been meaning to write more about what I got from the book but it’s hard to unpack it all; some of the ideas are still taking shape. There are a lot of avenues for analysis and someday I will explore them all because I will most certainly be reading it again. For now, these are the main ideas that I have gained from the book: 
@@ -12,7 +13,6 @@ It's been a couple weeks since I put down Crime and Punishment by Fyodor Dostoev
 
 When Raskolnikov (the protagonist) was trying to justify murdering the old woman, he tried to identify everything that was wrong with her: abusive, greedy, and harmful to the poor. He veiled his own malice and selfish interests behind his contempt of the old woman’s moral failings. Righteous indignation, if you will, and if not checked, a good excuse to forever locate ‘evil’ in the ‘other’ and never in ourselves. 
 
-An example of ignorance towards the malice in our own hearts is when we look at history. I think it’s unfortunate how some people, *with certainty*, think they could have been more ‘virtuous’ than their ancestors in any given time period. Everyone thinks they would be the ones freeing the slaves; neither buyer nor seller, not even the bystander! Or one of the good guys in Nazi Germany. The bias of hindsight can veil our own malice too. 
 
 **Life is full of suffering. It's a truism that sometimes lacks appreciation when life is going smoothly.** 
 
@@ -28,7 +28,7 @@ There was a motor accident in Zimbabwe earlier this year where a husband lost hi
 
 I have a friend who has experienced real suffering, and one day as he was telling me his life story I couldn’t believe how he was not bitter or just a mess really. He is the most put together guy I know and someone who refuses to surrender the agency of his life no matter what. I have nothing but admiration for him; he inspires me to be a better person. Therein lies the reason my father and I were trying to find, it rests in our admiration of people like my friend. 
 
-Our heroes are built on top of the archetype that refuses to be corrupted by the injustices of the world and that’s why they are popular. Superman, Batman, Spiderman, the list goes on… We are drawn to this archetype like moths to a lamp because we know, even if the weight of life is soul crushing, we should shoulder it and keep moving forward; deep down we are aware, it is an ideal worth striving for. 
+Our heroes are built on top of the archetype that refuses to be corrupted by the injustices of the world and that’s why they are popular. Superman, Batman, Spiderman, the list goes on… We are drawn to this archetype like moths to a lamp because we know, even if the weight of life is soul crushing, we should shoulder it and keep moving forward; deep down we are aware, it is an ideal worth striving for. For Raskolnikov, it was Sofya Semyonovna Marmeladov. 
 
 
 **A parting quote:** 

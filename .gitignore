@@ -7,5 +7,5 @@ requirements.tx
 build/
 DEPLOYMENT.md
 __pycache__/
-archives/*
+archived/*
 prompts/*

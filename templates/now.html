@@ -3,7 +3,7 @@
 
 {% block title %}Now{% endblock %}
 
-{% block description %}What Terence Mahlatini is currently thinking about.{% endblock %}
+{% block description %}What Terence Mahlatini is currently reading.{% endblock %}
 
 {% block body_class %}now-page{% endblock %}
 
@@ -12,20 +12,34 @@
 <p class="now-archive-nav"><a href="{{ url_for('now') }}">Current now page</a></p>
 {% endif %}
 <article>
-    <h1>{{ now_card.title if now_card else "What I'm thinking about" }}</h1>
+    <h1>{{ now_card.title if now_card else "Now" }}</h1>
     {% if now_card and now_card.date %}
     <div class="meta">
-        <time class="date" datetime="{{ now_card.date.strftime('%Y-%m-%d') }}">Last updated: {{ now_card.date.strftime('%d/%m/%Y') }}</time>
+        <time datetime="{{ now_card.date.strftime('%Y-%m-%d') }}">Last updated: {{ now_card.date.strftime('%d/%m/%Y') }}</time>
     </div>
     {% endif %}
     <div class="content">
+        {% if not is_archive %}
         <p class="now-preface">
-            This page serves as a snapshot of ideas, questions and curiosities currently orbiting my mental space.
-            Some ideas will develop into essays and others will remain just that, snapshots.
-            Check out the <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer">now movement</a>, the inspiration for this page.
+            What I am reading, and notes or quotes I pick up along the way.
         </p>
-        {% if now_card %}
-            {{ now_card.content | safe }}
+        {% if reading_books %}
+        <h2>Currently reading</h2>
+        <ul class="reading-list">
+            {% for book in reading_books %}
+            <li>
+                <a href="{{ url_for('entry', slug=book.slug) }}">{{ book.title }}</a>
+                <span class="index-list__secondary">{{ book.author }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% if now_card and now_card.content and now_card.content.strip() %}
+        <h2>Notes</h2>
+        {{ now_card.content | safe }}
+        {% endif %}
+        {% elif now_card %}
+        {{ now_card.content | safe }}
         {% endif %}
     </div>
 </article>
@@ -34,11 +48,10 @@
 {% block after_content %}
 {% if archives %}
 <section class="now-archive">
-    <h4>Archives</h4>
-    <ul class="posts posts-by-year">
+    <h2>Archives</h2>
+    <ul class="index-list index-list--quiet">
         {% for page in archives %}
-        <li class="{% if not loop.last %}post-item{% else %}post-item post-item-last-in-year{% endif %}">
-            <time class="date" datetime="{{ page.date.strftime('%Y-%m-%d') }}">{{ page.date.strftime('%d/%m/%Y') }}</time>
+        <li>
             <a href="{{ url_for('now_archive', date=page.date.strftime('%Y-%m-%d')) }}">{{ page.date.strftime('%d %B %Y') }}</a>
         </li>
         {% endfor %}
@@ -47,13 +60,8 @@
 {% endif %}
 {% endblock %}
 
-{% block footer_content %}
-<a href="{{ url_for('blog') }}">All posts</a>
-<span class="separator"> | </span>
-<button type="button" class="theme-toggle" aria-label="Switch to dark mode">
-    <span class="theme-toggle__text theme-toggle__text--light">Light Mode</span>
-    <span class="theme-toggle__text theme-toggle__text--dark">Dark Mode</span>
-</button>
-<span class="separator"> | </span>
-<a href="mailto:hello@terencemahlatini.com?subject=Re: {{ now_card.title | urlencode }}">Reply via email</a>
+{% block footer %}
+<footer>
+    <a href="mailto:hello@terencemahlatini.com?subject=Re: {{ now_card.title | urlencode }}">Reply via email</a>
+</footer>
 {% endblock %}

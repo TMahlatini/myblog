@@ -1,6 +1,7 @@
 ---
-title: The Three-Body Problem
+title: Ye Wenjie
 published: 2026-05-18
+book: three-body
 ---
 
 I have just finished reading The Three-Body Problem by Liu Cixin, the first in the Remembrance of Earth's Past trilogy. 
@@ -22,4 +23,3 @@ In the book, the character who betrayed humanity watched her own mother denounce
 ***A parting quote***:
 
  ```“The line separating good and evil passes not through states, nor between classes, nor between political parties either -- but right through every human heart -- and through all human hearts. This line shifts. Inside us, it oscillates with the years. And even within hearts overwhelmed by evil, one small bridgehead of good is retained” - Aleksandr Solzhenitsyn, The Gulag Archipelago ```
-

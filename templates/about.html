@@ -1,0 +1,15 @@
+<!-- htmlhint doctype-first:false -->
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block description %}About Terence Mahlatini.{% endblock %}
+
+{% block content %}
+<article>
+    <h1>About</h1>
+    <div class="content">
+        {{ about_card.content | safe }}
+    </div>
+</article>
+{% endblock %}
