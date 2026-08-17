@@ -1,5 +1,5 @@
 ---
-title: Raskolnikov
+title: The Human Condition
 published: 2026-06-29
 modified: 2026-07-16
 book: crime-and-punishment

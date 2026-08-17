@@ -1,10 +1,10 @@
-I made the site with two goals in mind: read and write more. In the world of LLMs, these two skills might become a lost art.
+I made the site with two goals in mind: read more and write more. 
 
-For the longest time I have wanted to increase my writing output, and recently one of my professors made an observation that has encouraged me to see this through: Once humans industrialized, and manual labor reduced in everyday tasks, we built gyms to exercise our muscles to mantian physical health, and now, we have another technological revolution on our hands which makes it very easy to offload a lot of cognitive tasks onto AI. This is site is my cognitve gym so to speak.
+For the longest time I have wanted to increase my writing output, and recently one of my professors made an observation that has encouraged me to see this through: Once humans industrialized, and manual labor reduced in everyday tasks, we built gyms to exercise our muscles to mantian physical health, and now, we have another technological revolution on our hands which makes it very easy to offload a lot of cognitive tasks onto AI. This site is my cognitve gym so to speak.
 
-Mostly I will write reflections on book themes, characters, ideas that jump to me, and anything else I feel is relevant or important to highlight for my future self. These are not book reviews or summaries, so I won't always give the full context. In most cases it will be just the right amount future me needs to remember. Occasionally, I will also write about software/programming related topics. 
+Mostly, I will write reflections on books I am reading (mostly fiction). The reflections will mostly be about ideas or themes I find interesting, and sometimes I will use the book as a springboard to discuss anything that feels relevant in my life or the world at large. These reflections are neither book reviews nor summaries, so I won't always give the full context. In most cases it will just be the right amount of context future me needs to remember. That said, feel free to email me if you disagree, relate or just want to expand on the discussion.
 
-With that said, feel free to email me if you disagree, relate or just want to expand on the discussion. 
+Since I recentely started documenting my reads not every book is on here. Also, not every book will have something said about it. Some reflections or notes might be private to me until such a time I feel okay publisizing them. Occasionally, I will also write about software/programming related topics.
 
 What I am currently reading is on [Now](/now/).
 

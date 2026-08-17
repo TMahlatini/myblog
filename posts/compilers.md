@@ -1,6 +1,7 @@
 ---
 title: Compilers are cool
 published: 2026-02-21
+tag: software
 ---
 
 A month or two ago, I read a blog post titled [“The indifference engine”.](https://ponnekanti.net/indifference/) For brevity, I’ve extracted a paragraph that summarizes the core idea: 
