@@ -6,10 +6,11 @@
     --spacing-xl: 2.5rem;
 
     --color-bg: #12100e;
-    --color-text: #c4b59a;
+    --color-text: #ad9a76;
     --color-text-secondary: #8a7d6b;
     --color-rule: #2c2823;
     --color-accent: #b8955c;
+    --color-emphasis: #936c38;
     --color-code-bg: #1a1714;
 
     --font: "Source Serif 4", Georgia, "Times New Roman", serif;
@@ -155,7 +156,44 @@ a:hover {
 }
 
 .home-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: var(--spacing-md);
     margin-bottom: var(--spacing-xl);
+}
+
+.home-intro__aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.home-intro__aside p {
+    margin-bottom: 0;
+    max-width: 16rem;
+    font-size: var(--font-size-small);
+    line-height: 1.45;
+}
+
+.home-intro__links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.15rem;
+}
+
+.home-intro__links a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: var(--font-size-small);
+    font-weight: 400;
+}
+
+.home-intro__links a:hover {
+    color: var(--color-text);
 }
 
 .profile-image {
@@ -339,6 +377,12 @@ article .content {
 
 article .content p {
     margin-bottom: 1.25rem;
+}
+
+article .content strong,
+article .content b {
+    color: var(--color-emphasis);
+    font-weight: 600;
 }
 
 article .content ul,

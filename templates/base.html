@@ -21,6 +21,7 @@
         <nav aria-label="Main navigation">
             <a href="{{ url_for('index') }}" class="{% if current_path == url_for('index') %}is-active{% endif %}" aria-current="{% if current_path == url_for('index') %}page{% else %}false{% endif %}">Home</a>
             <a href="{{ url_for('about') }}" class="{% if current_path == url_for('about') %}is-active{% endif %}" aria-current="{% if current_path == url_for('about') %}page{% else %}false{% endif %}">About</a>
+            <a href="{{ url_for('archive') }}" class="{% if current_path == url_for('archive') %}is-active{% endif %}" aria-current="{% if current_path == url_for('archive') %}page{% else %}false{% endif %}">Archive</a>
             <a href="{{ url_for('now') }}" class="{% if current_path.startswith('/now/') %}is-active{% endif %}" aria-current="{% if current_path.startswith('/now/') %}page{% else %}false{% endif %}">Now</a>
         </nav>
     </header>

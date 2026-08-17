@@ -17,12 +17,20 @@
     </p>
     {% endif %}
     <h1>{{ post.title }}</h1>
-    {% if post.published %}
+    {% if post.published or (not book and post.tags) %}
     <div class="meta">
+        {% if not book and post.tags %}
+        <span>{{ post.tags|join(', ') }}</span>
+        {% endif %}
+        {% if not book and post.tags and post.published %}
+        <span class="separator">·</span>
+        {% endif %}
+        {% if post.published %}
         <time datetime="{{ post.published.strftime('%Y-%m-%d') }}">Published: {{ post.published.strftime('%d/%m/%Y') }}</time>
         {% if post.modified %}
         <span class="separator">·</span>
         <time datetime="{{ post.modified.strftime('%Y-%m-%d') }}">Last modified: {{ post.modified.strftime('%d/%m/%Y') }}</time>
+        {% endif %}
         {% endif %}
     </div>
     {% endif %}

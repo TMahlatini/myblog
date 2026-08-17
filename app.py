@@ -47,6 +47,7 @@ def parse_frontmatter(content, slug):
     published = None
     modified = None
     book = None
+    tags = []
     reading = []
     body = content
 
@@ -87,6 +88,10 @@ def parse_frontmatter(content, slug):
                 elif line.startswith('book:'):
                     value = line.split(':', 1)[1].strip().strip('"\'')
                     book = value or None
+                elif line.startswith('tags:') or line.startswith('tag:'):
+                    value = line.split(':', 1)[1].strip().strip('"\'')
+                    if value:
+                        tags = [t.strip().strip('"\'') for t in value.split(',') if t.strip()]
                 elif line.startswith('reading:'):
                     in_reading = True
 
@@ -95,6 +100,7 @@ def parse_frontmatter(content, slug):
         'published': published,
         'modified': modified,
         'book': book,
+        'tags': tags,
         'reading': reading,
         'body': body
     }
@@ -121,6 +127,7 @@ def load_markdown_file(filepath, slug):
         'published': metadata['published'],
         'modified': metadata['modified'],
         'book': metadata['book'],
+        'tags': metadata['tags'],
         'reading': metadata['reading'],
         'content': markdown.markdown(
             metadata['body'],
@@ -321,12 +328,24 @@ def index():
     books = get_books()
     reading_slugs = get_reading_slugs()
     attach_shelf(books, posts, reading_slugs)
+    return render_template(
+        'index.html',
+        recent_posts=posts[:3],
+    )
+
+
+@app.route('/archive/')
+def archive():
+    posts = get_posts()
+    books = get_books()
+    reading_slugs = get_reading_slugs()
+    attach_shelf(books, posts, reading_slugs)
     completed_books = [b for b in books if not b['currently_reading']]
     completed_books.sort(key=lambda b: b['completed'] or datetime.min, reverse=True)
     return render_template(
-        'index.html',
+        'archive.html',
+        older_posts=posts[3:],
         books=completed_books,
-        recent_posts=posts[:5],
     )
 
 
