@@ -28,7 +28,7 @@
         <ul class="reading-list">
             {% for book in reading_books %}
             <li>
-                <a href="{{ url_for('entry', slug=book.slug) }}">{{ book.title }}</a>
+                {{ book.title }}
                 <span class="index-list__secondary">{{ book.author }}</span>
             </li>
             {% endfor %}

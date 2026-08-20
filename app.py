@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, url_for
 import os
 import markdown
 import yaml
-from datetime import date, datetime
+from datetime import datetime
 from markdown.extensions import Extension
 from markdown.treeprocessors import Treeprocessor
 from urllib.parse import urlparse
@@ -46,7 +46,6 @@ def parse_frontmatter(content, slug):
     title = slug.replace('-', ' ').title()
     published = None
     modified = None
-    book = None
     tags = []
     reading = []
     body = content
@@ -85,9 +84,6 @@ def parse_frontmatter(content, slug):
                         modified = datetime.strptime(date_str, '%Y-%m-%d')
                     except (ValueError, TypeError):
                         pass
-                elif line.startswith('book:'):
-                    value = line.split(':', 1)[1].strip().strip('"\'')
-                    book = value or None
                 elif line.startswith('tags:') or line.startswith('tag:'):
                     value = line.split(':', 1)[1].strip().strip('"\'')
                     if value:
@@ -99,7 +95,6 @@ def parse_frontmatter(content, slug):
         'title': title,
         'published': published,
         'modified': modified,
-        'book': book,
         'tags': tags,
         'reading': reading,
         'body': body
@@ -126,7 +121,6 @@ def load_markdown_file(filepath, slug):
         'title': metadata['title'],
         'published': metadata['published'],
         'modified': metadata['modified'],
-        'book': metadata['book'],
         'tags': metadata['tags'],
         'reading': metadata['reading'],
         'content': markdown.markdown(
@@ -176,32 +170,6 @@ def get_posts():
     return posts
 
 
-def parse_completed(value):
-    """Parse a YAML completed date into datetime, or None."""
-    if value is None:
-        return None
-    if isinstance(value, datetime):
-        return value
-    if isinstance(value, date):
-        return datetime(value.year, value.month, value.day)
-    if isinstance(value, str):
-        try:
-            return datetime.strptime(value, '%Y-%m-%d')
-        except ValueError:
-            return None
-    return None
-
-
-def load_book(slug):
-    """Load a single book catalog entry."""
-    if not SLUG_PATTERN.match(slug):
-        return None
-    for book in get_books():
-        if book['slug'] == slug:
-            return book
-    return None
-
-
 def get_books():
     """Get all books in catalog order."""
     books = []
@@ -221,21 +189,7 @@ def get_books():
             'slug': slug,
             'title': meta.get('title') or slug.replace('-', ' ').title(),
             'author': meta.get('author') or '',
-            'completed': parse_completed(meta.get('completed')),
         })
-    return books
-
-
-def attach_shelf(books, posts, reading_slugs):
-    """Attach essays and currently-reading state to book catalog entries."""
-    reading_set = set(reading_slugs)
-    for book in books:
-        book['essays'] = [p for p in posts if p.get('book') == book['slug']]
-        book['currently_reading'] = book['slug'] in reading_set
-    books_by_slug = {b['slug']: b for b in books}
-    for post in posts:
-        book = books_by_slug.get(post.get('book'))
-        post['book_title'] = book['title'] if book else None
     return books
 
 
@@ -290,24 +244,9 @@ def get_now_pages():
     return pages
 
 
-def get_reading_slugs():
-    """Reading list from the living (latest) Now page."""
-    pages = get_now_pages()
-    if not pages:
-        return []
-    return pages[0].get('reading') or []
-
-
 def resolve_reading_books(slugs, books):
     by_slug = {b['slug']: b for b in books}
     return [by_slug[s] for s in slugs if s in by_slug]
-
-
-@app.template_global()
-def essay_url(post):
-    if post.get('book'):
-        return url_for('book_essay', book_slug=post['book'], essay_slug=post['slug'])
-    return url_for('entry', slug=post['slug'])
 
 
 @app.context_processor
@@ -324,28 +263,9 @@ def inject_current_path():
 
 @app.route('/')
 def index():
-    posts = get_posts()
-    books = get_books()
-    reading_slugs = get_reading_slugs()
-    attach_shelf(books, posts, reading_slugs)
     return render_template(
         'index.html',
-        recent_posts=posts[:3],
-    )
-
-
-@app.route('/archive/')
-def archive():
-    posts = get_posts()
-    books = get_books()
-    reading_slugs = get_reading_slugs()
-    attach_shelf(books, posts, reading_slugs)
-    completed_books = [b for b in books if not b['currently_reading']]
-    completed_books.sort(key=lambda b: b['completed'] or datetime.min, reverse=True)
-    return render_template(
-        'archive.html',
-        older_posts=posts[3:],
-        books=completed_books,
+        posts=get_posts(),
     )
 
 
@@ -398,59 +318,14 @@ def now_archive(date):
     )
 
 
-@app.route('/blog/')
-def blog_redirect():
-    return render_template('redirect.html', url=url_for('index'))
-
-
-@app.route('/threebody/')
-def threebody_redirect():
-    return render_template(
-        'redirect.html',
-        url=url_for('book_essay', book_slug='three-body', essay_slug='ye-wenjie'),
-    )
-
-
-@app.route('/crimeAndpunishment/')
-def crime_and_punishment_redirect():
-    return render_template(
-        'redirect.html',
-        url=url_for('book_essay', book_slug='crime-and-punishment', essay_slug='main-ideas'),
-    )
-
-
-@app.route('/<book_slug>/<essay_slug>/')
-def book_essay(book_slug, essay_slug):
-    if not SLUG_PATTERN.match(book_slug) or not SLUG_PATTERN.match(essay_slug):
-        return "Invalid slug", 400
-
-    book = load_book(book_slug)
-    if not book:
-        return "Not found", 404
-
-    post = load_post_from_file(essay_slug)
-    if not post or post.get('book') != book_slug:
-        return "Not found", 404
-
-    post['book_title'] = book['title']
-    return render_template('post.html', post=post, book=book)
-
-
 @app.route('/<slug>/')
 def entry(slug):
     if not SLUG_PATTERN.match(slug):
         return "Invalid slug", 400
 
-    book = load_book(slug)
-    if book:
-        posts = get_posts()
-        reading_slugs = get_reading_slugs()
-        attach_shelf([book], posts, reading_slugs)
-        return render_template('book.html', book=book)
-
     post = load_post_from_file(slug)
-    if post and not post.get('book'):
-        return render_template('post.html', post=post, book=None)
+    if post:
+        return render_template('post.html', post=post)
 
     return "Not found", 404
 

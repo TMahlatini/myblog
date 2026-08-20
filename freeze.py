@@ -1,5 +1,5 @@
 from flask_frozen import Freezer
-from app import app, get_posts, get_now_pages, get_books
+from app import app, get_posts, get_now_pages
 import os
 import sys
 
@@ -17,18 +17,8 @@ freezer = Freezer(app)
 
 @freezer.register_generator
 def entry():
-    for book in get_books():
-        yield {'slug': book['slug']}
     for post in get_posts():
-        if not post.get('book'):
-            yield {'slug': post['slug']}
-
-
-@freezer.register_generator
-def book_essay():
-    for post in get_posts():
-        if post.get('book'):
-            yield {'book_slug': post['book'], 'essay_slug': post['slug']}
+        yield {'slug': post['slug']}
 
 
 @freezer.register_generator

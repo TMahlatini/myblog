@@ -9,7 +9,7 @@
 <section class="home-intro">
     <img src="{{ url_for('static', filename='images/profile3.JPG') }}" alt="Terence Mahlatini" class="profile-image">
     <div class="home-intro__aside">
-        <p>I am documenting my reads, feel free to come along for the journey.</p>
+        <p>Reading. Thinking. Writing.</p>
         <nav class="home-intro__links" aria-label="Contact">
             <a href="https://www.linkedin.com/in/terence-mahlatini" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="mailto:hello@terencemahlatini.com">Email</a>
@@ -19,15 +19,13 @@
 
 
 <section class="recent">
-    <h2>Recent</h2>
+    <h2>All Posts</h2>
     <ul class="index-list">
-        {% for post in recent_posts %}
+        {% for post in posts %}
         <li>
             <div class="index-list__main">
-                <a href="{{ essay_url(post) }}">{{ post.title }}</a>
-                {% if post.book_title %}
-                <span class="index-list__secondary">{{ post.book_title }}</span>
-                {% elif post.tags %}
+                <a href="{{ url_for('entry', slug=post.slug) }}">{{ post.title }}</a>
+                {% if post.tags %}
                 <span class="index-list__secondary">{{ post.tags|join(', ') }}</span>
                 {% endif %}
             </div>

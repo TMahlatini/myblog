@@ -2,7 +2,7 @@
 title: The Human Condition
 published: 2026-06-29
 modified: 2026-07-16
-book: crime-and-punishment
+tags: Crime and Punishment
 ---
 
 It's been a couple weeks since I put down Crime and Punishment by Fyodor Dostoevsky. I have been meaning to write more about what I got from the book but it’s hard to unpack it all; some of the ideas are still taking shape. There are a lot of avenues for analysis and someday I will explore them all because I will most certainly be reading it again. For now, these are the main ideas that I have gained from the book: 

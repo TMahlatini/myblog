@@ -1,7 +1,7 @@
 ---
 title: Ye Wenjie
 published: 2026-05-18
-book: three-body
+tags: The Three-Body Problem
 ---
 
 I have just finished reading The Three-Body Problem by Liu Cixin, the first in the Remembrance of Earth's Past trilogy. 

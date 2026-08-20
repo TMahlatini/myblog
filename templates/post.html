@@ -9,20 +9,13 @@
 
 {% block content %}
 <article>
-    {% if book %}
-    <p class="breadcrumb">
-        <a href="{{ url_for('entry', slug=book.slug) }}">{{ book.title }}</a>
-        <span class="breadcrumb__sep">/</span>
-        <span>{{ post.title }}</span>
-    </p>
-    {% endif %}
     <h1>{{ post.title }}</h1>
-    {% if post.published or (not book and post.tags) %}
+    {% if post.published or post.tags %}
     <div class="meta">
-        {% if not book and post.tags %}
+        {% if post.tags %}
         <span>{{ post.tags|join(', ') }}</span>
         {% endif %}
-        {% if not book and post.tags and post.published %}
+        {% if post.tags and post.published %}
         <span class="separator">·</span>
         {% endif %}
         {% if post.published %}

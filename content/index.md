@@ -1,10 +1,8 @@
 I made the site with two goals in mind: read more and write more. 
 
-For the longest time I have wanted to increase my writing output, and recently one of my professors made an observation that has encouraged me to see this through: Once humans industrialized, and manual labor reduced in everyday tasks, we built gyms to exercise our muscles to mantian physical health, and now, we have another technological revolution on our hands which makes it very easy to offload a lot of cognitive tasks onto AI. This site is my cognitve gym so to speak.
+For the longest time I have wanted to increase my writing output, and recently one of my professors made an observation that has encouraged me to see this through: Once humans industrialized, and manual labor reduced in everyday tasks, we built gyms to exercise our muscles to mantian physical health, and now, we have another technological revolution on our hands which makes it very easy to offload a lot of cognitive tasks onto AI. This site is my cognitve gym so to speak. 
 
-Mostly, I will write reflections on books I am reading (mostly fiction). The reflections will mostly be about ideas or themes I find interesting, and sometimes I will use the book as a springboard to discuss anything that feels relevant in my life or the world at large. These reflections are neither book reviews nor summaries, so I won't always give the full context. In most cases it will just be the right amount of context future me needs to remember. That said, feel free to email me if you disagree, relate or just want to expand on the discussion.
-
-Since I recentely started documenting my reads not every book is on here. Also, not every book will have something said about it. Some reflections or notes might be private to me until such a time I feel okay publisizing them. Occasionally, I will also write about software/programming related topics.
+You will find essays and miniessays with topics ranging from random shower thoughts to cultural commentary. However, my writings will mainly centre around books I have read. Feel free to [email me](mailto:hello@terencemahlatini.com) if you relate, disagree or just want to expand on the discussion of my writings. Conversation or debate is a great way to sharpen ideas or unlearn wrong ones.
 
 What I am currently reading is on [Now](/now/).
 

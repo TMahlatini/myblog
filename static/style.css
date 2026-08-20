@@ -284,12 +284,6 @@ a:hover {
     font-size: 0.85rem;
 }
 
-.reading-note {
-    color: var(--color-text-secondary);
-    font-size: var(--font-size-small);
-    margin-bottom: var(--spacing-lg);
-}
-
 .reading-list {
     list-style: none;
     margin-left: 0;
@@ -314,26 +308,6 @@ a:hover {
 
 .empty {
     color: var(--color-text-secondary);
-}
-
-.breadcrumb {
-    color: var(--color-text-secondary);
-    font-size: var(--font-size-small);
-    margin-bottom: var(--spacing-md);
-}
-
-.breadcrumb a {
-    color: var(--color-text-secondary);
-    text-decoration: none;
-}
-
-.breadcrumb a:hover {
-    color: var(--color-accent);
-}
-
-.breadcrumb__sep {
-    margin: 0 0.4em;
-    color: var(--color-rule);
 }
 
 .meta {
