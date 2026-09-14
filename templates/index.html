@@ -20,20 +20,10 @@
 
 <section class="recent">
     <h2>All Posts</h2>
-    <ul class="index-list">
+    <ul>
         {% for post in posts %}
         <li>
-            <div class="index-list__main">
-                <a href="{{ url_for('entry', slug=post.slug) }}">{{ post.title }}</a>
-                {% if post.tags %}
-                <span class="index-list__secondary">{{ post.tags|join(', ') }}</span>
-                {% endif %}
-            </div>
-            <div class="index-list__meta">
-                {% if post.published %}
-                <time datetime="{{ post.published.strftime('%Y-%m-%d') }}">{{ post.published.strftime('%d %b %Y') }}</time>
-                {% endif %}
-            </div>
+            <a href="{{ url_for('entry', slug=post.slug) }}">{{ post.title }}</a>
         </li>
         {% endfor %}
     </ul>
