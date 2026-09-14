@@ -2,7 +2,7 @@ I made the site with two goals in mind: read more and write more.
 
 For the longest time I have wanted to increase my writing output, and recently one of my professors made an observation that has encouraged me to see this through: Once humans industrialized, and manual labor reduced in everyday tasks, we built gyms to exercise our muscles to mantian physical health, and now, we have another technological revolution on our hands which makes it very easy to offload a lot of cognitive tasks onto AI. This site is my cognitve gym so to speak. 
 
-You will find essays and miniessays with topics ranging from random shower thoughts to cultural commentary. However, my writings will mainly centre around books I have read. Feel free to [email me](mailto:hello@terencemahlatini.com) if you relate, disagree or just want to expand on the discussion of my writings. Conversation or debate is a great way to sharpen ideas or unlearn wrong ones.
+You will find essays and miniessays with topics ranging from random shower thoughts to cultural commentary. Feel free to [email me](mailto:hello@terencemahlatini.com) if you relate, disagree or just want to expand on the discussion. Conversation or debate is a great way to sharpen ideas or unlearn wrong ones; I'm proudly a fulltime student in the realm of ideas. 
 
 What I am currently reading is on [Now](/now/).
 
